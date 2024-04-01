@@ -18,14 +18,11 @@
             </li>
   
             <li class="header-profile ">
-                <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-power-off"></i>Logout
+                <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="logouts()">
+                    <i class="fa-solid fa-power-off"></i>Logout 
                     <!-- <img src="assets/images/profile.jpg" class="img-responsive"> -->
                 </a>
-                <ul class="dropdown-menu">
-                            <li><a class="dropdown-item"  (click)="logouts()">Logout</a></li>
-                </ul>
-            </li>
+              
   
         </ul>
     </header>

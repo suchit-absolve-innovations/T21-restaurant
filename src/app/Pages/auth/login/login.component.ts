@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { Login } from 'src/app/shared/models/login';
 import { AuthService } from 'src/app/shared/service/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { ContentService } from 'src/app/shared/service/content.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,14 +20,17 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   loginModel!: Login;
   submitted = false;
-  show = true;
-  password!: string;
+
+  show = false;
+  password!: any;
   constructor(
     private renderer: Renderer2,
-    private formBuilder: FormBuilder,
-    public authService: AuthService,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private toasterService: ToastrService,
+    private content : ContentService
   ) {}
 
   ngOnInit(): void {
@@ -48,6 +53,9 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.loginForm.controls;
   }
+  
+
+
 
   // password eye
 
@@ -55,21 +63,21 @@ export class LoginComponent implements OnInit {
   onClick() {
     if (this.password === 'password') {
       this.password = 'text';
-      this.show = false;
+      this.show = true;
     } else {
       this.password = 'password';
-      this.show = true;
+      this.show = false;
     }
   }
 
   onSubmit() {
     this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
+    // if (this.loginForm.invalid) {
+    //   return;
+    // }
     this.spinner.show();
     this.loginModel = this.loginForm.value;
-    this.authService.login(this.loginModel).subscribe((response) => {
+    this.auth.login(this.loginModel).subscribe((response) => {
       if (response.message) {
         this.spinner.hide();
         // localStorage.setItem('currentUser', JSON.stringify(response.data));
@@ -79,6 +87,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy() {
