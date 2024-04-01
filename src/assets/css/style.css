@@ -294,7 +294,6 @@ header{
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    padding-left: 43rem;
     margin: 0;
 }
 .notification_dropdown {
@@ -399,8 +398,8 @@ aside {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    color: #212E34;
-    font-size: 18px;
+    color:#212E34;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
     padding: 12px 22px;
@@ -598,7 +597,6 @@ aside {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    border-radius: 0px 40px 0px 0px;
 }
 
 .side-bar.open, .logo-resize {
@@ -831,4 +829,102 @@ aside.open .copyright{
     background: -webkit-linear-gradient(94deg, rgba(116,213,202,1) 0%, rgba(34,192,169,1) 100%);
     background: linear-gradient(94deg, rgba(116,213,202,1) 0%, rgba(34,192,169,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#74d5ca",endColorstr="#22c0a9",GradientType=1);
+}
+
+/**/
+
+.login-outer{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-forms {
+    background: #fff;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    padding-top: 30px;
+}
+.input-forms h2{
+    color: #087FF5;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.input-forms span{
+    text-align: center;
+    display: block;
+    font-size: 15px;
+}
+.input-forms label {
+    display: block;
+    font-size: 15px;
+    font-family: inter;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1B4332;
+}
+.input-forms input[type=text], .input-forms input[type=password] {
+    background: #f1f1f1;
+    max-width: 350px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+    height: 42px;
+    border-radius: 0px;
+    border: none;
+    padding: 0px 20px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+.input-forms input[type=text].user{
+    background: #f1f1f1 url(../images/user.svg)no-repeat center left;
+    padding-left: 55px;
+}
+.input-forms input[type=password].password{
+    background: #f1f1f1 url(../images/lock.svg)no-repeat center left;
+    padding-left: 55px;
+}
+
+.input-forms input[type=submit] {
+    background: #222;
+    min-width: 200px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    height: 45px;
+    border-radius: 50px;
+    border: none;
+    padding: 0px 20px;
+    font-size: 17px;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+}
+.input-forms input[type=submit]:hover{
+  background: #087FF5;
+}
+
+.signed-in a{
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 991px) {
+    .input-forms {max-width: 80%}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .input-forms {max-width: 300px}
+    .input-forms h2{font-size: 24px; font-weight: 700;}
 }
