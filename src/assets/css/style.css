@@ -294,6 +294,7 @@ header{
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    padding-left: 42rem;
     margin: 0;
 }
 .notification_dropdown {

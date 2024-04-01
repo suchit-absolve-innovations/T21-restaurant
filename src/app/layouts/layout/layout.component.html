@@ -19,8 +19,7 @@
   
             <li class="header-profile ">
                 <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="logouts()">
-                    <i class="fa-solid fa-power-off"></i>Logout 
-                    <!-- <img src="assets/images/profile.jpg" class="img-responsive"> -->
+                    <i class="fa-solid fa-power-off"></i> Logout 
                 </a>
               
   
@@ -53,18 +52,18 @@
                 </div>
   
                 <div class="item">
-                    <a [routerLink]="['/distributor-list']" routerLinkActive="active"> <span>Products</span> <i class="far fa-list-alt"></i></a>
+                    <a [routerLink]="['/product-list']" routerLinkActive="active"> <span>Products</span> <i class="far fa-list-alt"></i></a>
                 </div>
   
                 <div class="item">
-                    <a [routerLink]="['/dealer-list']" routerLinkActive="active"> <span>Categories</span><i class="fa-solid fa-table-cells"></i></a>
+                    <a [routerLink]="['/main-category']" routerLinkActive="active"> <span>Categories</span><i class="fa-solid fa-table-cells"></i></a>
                 </div>
   
                 <div class="item">
-                  <a [routerLink]="['/product-list']" routerLinkActive="active"> <span>Banners</span><i class="fa fa-archive"></i></a>
+                  <a [routerLink]="['/distributor-list']" routerLinkActive="active"> <span>Banners</span><i class="fa fa-archive"></i></a>
               </div>
               <div class="item">
-                  <a [routerLink]="['/main-category']" routerLinkActive="active"> <span>Notification</span><i class="fa-solid fa-envelope-open-text"></i></a>
+                  <a [routerLink]="['/dealer-list']" routerLinkActive="active"> <span>Notification</span><i class="fa-solid fa-envelope-open-text"></i></a>
               </div>
               <div class="item">
                 <a [routerLink]="['/company-profile']" routerLinkActive="active">
