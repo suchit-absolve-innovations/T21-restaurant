@@ -468,6 +468,11 @@ aside {
     -ms-flex-pack: start !important;
     justify-content: flex-start !important;
 }
+.side-bar .menu .item a.active {
+    background: #afa9a9 !important;
+    color: #f5f5f5;
+    border-radius: 5px;
+  }
 .side-bar.open .menu .item .sub-menu a {
     padding-left: 25px;
 }
