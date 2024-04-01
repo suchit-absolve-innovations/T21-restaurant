@@ -1,0 +1,96 @@
+
+/* Login wrapper styles */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-form {
+    padding: 20px;
+}
+
+.input-forms input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-forms input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.input-group-append {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.remember-me {
+    margin-top: 10px;
+}
+
+.remember-me a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.remember-me a:hover {
+    text-decoration: underline;
+}
+
+/* Button styles */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Eye icon styles */
+.eye-icon {
+    color: #aaa;
+}
+
+.eye-icon:hover {
+    color: #333;
+}
+
+/* Logo styles */
+.bg-cover {
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+}
+.logo-abbr{
+    width: 320px;
+}
+/* Responsive styles */
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}

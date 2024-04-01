@@ -1,3 +1,81 @@
-<h1>hello
-    
-</h1>
+<div class="login-wrapper">
+
+    <div class="container">
+        <div class="row-login">
+
+        
+
+            <div class="box-form bg-white">
+                    <a  class="brand-logo" >
+                        <img class="logo-abbr mb-20"   src="/assets/images/logo.png" alt="">
+                        <!-- <img class="logo-abbr" src="assets/images/abso.png" alt="">
+                        <img class="logo-compact" src="assets/images/logo-text.png" alt="">
+                        <img class="brand-title" src="assets/images/logo-text.png" alt=""> -->
+                    </a>
+                <hr>
+                    <!-- <div class="nav-control">
+                        <div class="hamburger nav-toggle">
+                            <span class="line"></span><span class="line"></span><span class="line"></span>
+                        </div>
+                    </div> -->
+                   
+                <!-- <div class="globe-top">
+                                <ul class="listing">
+                                    <li class="init">Globe English</li>
+                                    <li data-value="value 1">Option 1</li>
+                                    <li data-value="value 2">Option 2</li>
+                                    <li data-value="value 3">Option 3</li>
+                                </ul>                           
+                            </div> -->
+
+                <div class="input-forms ">
+                    <h2>Login Account</h2>
+                    <p>Let's get you started!</p>
+                    <div class="mt-20">
+                        <input type="text" class="form-control user" placeholder="Username"
+                            formControlName="emailOrPhone"
+                            [ngClass]="{ 'is-invalid': submitted && f['emailOrPhone'].errors }">
+                        <div *ngIf="submitted && f['emailOrPhone'].errors" class="help-block">
+                            <div *ngIf="f['emailOrPhone'].errors['required']" style="color: #fd0000;">Email or Phone
+                                is
+                                required</div>
+                        </div>
+                    </div>
+                    <div class="position-relative mt-20 d-flex">
+                        <input type="password" class="form-control login-inputpass" placeholder="Password"
+                            formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+
+                        <div class="input-group-append login-eye-icon" (click)="onClick()">
+                            <i class="fa fa-eye-slash eye-icon eye-icon-align " aria-hidden="true" *ngIf="!show"></i>
+                            <i class="fa fa-eye " aria-hidden="true" *ngIf="show"></i>
+                        </div>
+                    </div>
+
+                    <div *ngIf="submitted && f['password'].errors" class="help-block"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                        <div *ngIf="f['password'].errors['required']" style="color: #fd0000; margin-top: 3px;">
+                            Password is
+                            required</div>
+                    </div>
+
+                    <input type="submit" type="submit" value="Log In" (click)="onSubmit()">
+                </div>
+                <div class="grid-text">
+
+                    <div class="password"><a href="#">Forgot Password?</a></div>
+                </div>
+
+                <div class="remember-me">
+                    <p>Don't have an account?<a [routerLink]="['/register']"> Register Now</a></p>
+                </div>
+
+                <input style="display: none;" type="submit" value="Register" >
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
