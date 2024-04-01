@@ -11,13 +11,21 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {    
-    
+    .column-two{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (max-width: 991px) {
-    
+    .right-fix {
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        left: inherit;
+    }
+    .head-wide .nav-control{display: none !important;}
+
     .table-box{overflow-x: auto;}
-    .bx-ads{grid-template-columns: 45px 1fr;}
     .bx-ads h3{font-size: 18px;}
 
     .xs-bg-grey{
@@ -129,12 +137,15 @@
 }
 
 @media screen and (max-width: 767px) {
+    header{padding: 0px 15px;}
+    .brand-logo img{
+        max-width: 100px;
+    }
     	
 	/*** Header Css ****/
     .nav-header{width: auto;}
     .side-bar.open{width: 17rem;}
     .side-bar.open .menu a span{display: block;}
-    .side-bar.open .menu a i{margin-right: 15px;}
     .side-bar.open .menu .item a {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -153,6 +164,10 @@
 
     .side-bar{width: 0rem;}
     .content-body{margin-left: 0rem;}
+
+    .column-two{
+        grid-template-columns: repeat(1, 1fr);
+    }
 
 	.xs-mobile-flex{
 		display: -ms-flexbox;
@@ -230,6 +245,10 @@
 
 }
 
+@media screen and (max-width: 375px) {
+    .xxs-mt-20{margin-top: 20px;}
+}
+
  @media (min-width: 320px) and (max-width: 480px) {
 	
     h3{font-size: 18px;}
@@ -263,6 +282,6 @@
     }
     .xxs-d-block {
          display: block !important;
-    }
+    }    
 
  }
