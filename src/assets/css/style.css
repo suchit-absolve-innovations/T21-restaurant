@@ -294,6 +294,7 @@ header{
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    padding-left: 43rem;
     margin: 0;
 }
 .notification_dropdown {
@@ -398,8 +399,8 @@ aside {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    color:#212E34;
-    font-size: 16px;
+    color: #212E34;
+    font-size: 18px;
     font-weight: 500;
     text-decoration: none;
     padding: 12px 22px;
@@ -592,6 +593,7 @@ aside {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    border-radius: 0px 40px 0px 0px;
 }
 
 .side-bar.open, .logo-resize {

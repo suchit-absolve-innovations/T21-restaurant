@@ -1,0 +1,100 @@
+<div class="dashboard-outer">
+  
+    <header>
+      
+        <div class="search-box xs-d-none">
+            <input type="text"  placeholder="Search Products">
+          </div>
+        <ul class="ml-auto header-outer">
+            <li class="notification_dropdown li-current">
+                <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa-solid fa-bell"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" >Action</a>
+                  <a class="dropdown-item" >Another action</a>
+                   <a class="dropdown-item" >Something else here</a>
+                </ul>
+            </li>
+  
+            <li class="header-profile ">
+                <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-power-off"></i>Logout
+                    <!-- <img src="assets/images/profile.jpg" class="img-responsive"> -->
+                </a>
+                <ul class="dropdown-menu">
+                            <li><a class="dropdown-item"  (click)="logouts()">Logout</a></li>
+                </ul>
+            </li>
+  
+        </ul>
+    </header>
+  
+    <section>
+        
+        <aside class="side-bar">
+            <div class="nav-header xs-d-none">
+                <a  class="brand-logo" >
+        
+                    <img class="logo-abbr" src="/assets/images/logo.png" alt="">
+                    <!-- <img class="logo-abbr" src="assets/images/abso.png" alt="">
+                    <img class="logo-compact" src="assets/images/logo-text.png" alt="">
+                    <img class="brand-title" src="assets/images/logo-text.png" alt=""> -->
+                </a>
+            
+                <!-- <div class="nav-control">
+                    <div class="hamburger nav-toggle">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                </div> -->
+               
+            </div>
+            <div class="menu">
+                <div class="item">
+                    <a [routerLink]="['/dashboard']" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}"> <span>Dashboard</span> <i class="fa fa-dashboard"></i></a>
+                </div>
+  
+                <div class="item">
+                    <a [routerLink]="['/distributor-list']" routerLinkActive="active"> <span>Products</span> <i class="far fa-list-alt"></i></a>
+                </div>
+  
+                <div class="item">
+                    <a [routerLink]="['/dealer-list']" routerLinkActive="active"> <span>Categories</span><i class="fa-solid fa-table-cells"></i></a>
+                </div>
+  
+                <div class="item">
+                  <a [routerLink]="['/product-list']" routerLinkActive="active"> <span>Banners</span><i class="fa fa-archive"></i></a>
+              </div>
+              <div class="item">
+                  <a [routerLink]="['/main-category']" routerLinkActive="active"> <span>Notification</span><i class="fa-solid fa-envelope-open-text"></i></a>
+              </div>
+              <div class="item">
+                <a [routerLink]="['/company-profile']" routerLinkActive="active">
+                  <span>Profile</span><i class="fa-solid fa-id-badge"></i></a>
+            </div>
+  
+                <div class="item">
+                    <a [routerLink]="['/privacy-policy']" routerLinkActive="active">
+                       <span>Privacy Policy</span><i class="fa fa-user-secret"></i></a>
+                </div>
+                <div class="item">
+                    <a [routerLink]="['/terms-condition']" routerLinkActive="active">
+                      <span>Terms & conditions</span><i class="fa fa-file-text-o"></i></a>
+                </div>
+  
+             
+  
+            </div>
+  
+            
+        
+        </aside>
+  
+    
+  
+    </section>
+  
+    <footer></footer>
+    <router-outlet></router-outlet>
+  </div>

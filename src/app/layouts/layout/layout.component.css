@@ -1,0 +1,39 @@
+.nav-header .logo-abbr {
+    max-width: 142px;
+}
+.search-box input[type=text] {
+    /* background: #E9E9E9 url(..) no-repeat left center; */
+    border: none;
+    color: #212e34db;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    outline: none;
+    font-weight: 300;
+    padding-left: 25px;
+}
+.search-box {
+    margin-left: 30px;
+}
+.nav-header .brand-logo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.125rem;
+    background: #fff;
+    border-radius: 0px 40px 0px 0px;
+    text-decoration: none;
+    padding-left: 50px;
+}
+.nav-header {
+    left: auto;
+    width: 17rem;
+    height: 4rem;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #e9e9e9;
+    transition: all .2s ease;
+    z-index: 5;
+}

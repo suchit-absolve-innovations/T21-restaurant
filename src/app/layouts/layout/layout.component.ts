@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RoleRoutes } from 'src/app/shared/route';
 @Component({
@@ -20,6 +21,7 @@ export class LayoutComponent implements OnInit {
   dairyStatus!: any;
   constructor(
     private spinner: NgxSpinnerService,
+    private router: Router,
   ) { 
     this.showSubRoutes = false;
   }
@@ -110,5 +112,7 @@ export class LayoutComponent implements OnInit {
     this.classActives = data;
   }
 
-
+  logouts() {
+    this.router.navigateByUrl('/login');
+  }
 }
