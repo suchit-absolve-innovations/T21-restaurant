@@ -16,6 +16,11 @@ import { EditProductComponent } from './product/edit-product/edit-product.compon
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { OrderListComponent } from './order-list/order-list/order-list.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { RestaurantListComponent } from './restaurant/restaurant-list/restaurant-list.component';
+import { RestaurantDetailsComponent } from './restaurant/restaurant-details/restaurant-details.component';
+import { AdminProfileComponent } from './profile/admin-profile/admin-profile.component';
+import { NotificationComponent } from './notification/notification.component';
+
 
 
 @NgModule({
@@ -30,6 +35,10 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     AddProductComponent,
     EditProductComponent,
     OrderListComponent,
+    RestaurantListComponent,
+    RestaurantDetailsComponent,
+    AdminProfileComponent,
+    NotificationComponent,
   ],
   imports: [
     CommonModule,

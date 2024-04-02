@@ -22,6 +22,7 @@
     "@kolkov/angular-editor": "^3.0.0-beta.0",
     "font-awesome": "^4.7.0",
     "guid-typescript": "^1.0.9",
+    "ngx-pagination": "^6.0.3",
     "ngx-spinner": "^13.1.1",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",

@@ -1,12 +1,14 @@
-<div class="app-main__outer">
-    <div class="admin_a">
-      <div class="top-head">
-        <img src="assets\img\backimage.png" class="backimage-butn">
-        <h2>Product form</h2>
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center flex-wrap">
+      <div class="d-flex align-items-center sp-text mr-auto">
+          <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
+          <h4>Add Product</h4>
       </div>
+  </div>
       <form>
   
-        <div class="vendor-form mt-40 bg-white" >
+        <div class="vendor-form input-form mt-40 bg-white" >
           <div class="text-center mb-30">
             <h3>Product Photos</h3>
           </div>
@@ -14,30 +16,21 @@
             <div class="upload_file text-center">
               <div class="imges-upload mb-0">
                 <div class="imgUp m-auto">
-                  <div class="imagePreview" style="background-image: url(&quot;undefined&quot;);">
-                  </div>
+                  <div class="imagePreview" [ngStyle]="{'background-image': 'url(' + urls[urls.length - 1] + ')'}"></div>
+
                       <label class="upload button btn btn-primary">
                         Upload<input type="file" class="uploadFile img" name="bannerimage"
                           style="width: 0px;height: 0px;overflow: file; border-style: none;" id="bannerimage"
-                         multiple />
+                          (change)="onselect($event)"  />
                       </label>
                   <div></div>
                 </div>
               </div>
             </div>
           </div>
-                <div class="col-lg-6 mx-auto mb-30">
-                <div class="multi-img-box">
-                  <div>
-                    <div class="multiple-images multiple-img-sec ">
-                      <img class="img-responsive" />
-                      <button class="remove" >X</button>
-                    </div>
-                  </div>
-                </div>
-                </div>
+             
               
-          <h3>Price, Stock and Shipping Information</h3>
+          <h3>Price Information</h3>
           <div class="this_row">
             <div class="row">
               <div class="col-lg-6 col-md-12">
@@ -74,57 +67,8 @@
                 </label> -->
               </div>
 
-              <div class="col-lg-4 col-md-12">
-                <label>Container Type <i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                <select type="text" class="control-form" formControlName="productContainerTypeId">
-                  <option value="">Select Type</option>
-                  <option>
-                  data
-                  </option>
-                </select>
-                <!-- <label *ngIf="submitted && f['productContainerTypeId'].errors" class="invalid-formdata">
-                  Product Container Type is required
-                </label> -->
-              </div>
-  
-              <div class="col-lg-4 col-md-12">
-                <label>Manufacturing Date </label>
-                <input type="text" formControlName="manufacturingDate" class="form-control" bsDatepicker
-                 />
-                <!-- <label *ngIf="submitted && f['manufacturingDate'].errors" class="invalid-formdata">
-                                Manufacturing Date is required
-                              </label> -->
-              </div>
-  
-              <div class="col-lg-4 col-md-12">
-                <label>Expiry Date </label>
-                <input type="text" formControlName="expiryDate" class="form-control" bsDatepicker
-                  />
-                <!-- <label *ngIf="submitted && f['expiryDate'].errors" class="invalid-formdata">
-                            Expiry Date is required
-                          </label> -->
-              </div>
-  
-              <div class="col-lg-6 col-md-12">
-                <label>Quantity <i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                <input type="text"  class="control-form" formControlName="quantity" />
-                <!-- <label *ngIf="submitted && f['quantity'].errors" class="invalid-formdata">
-                  Quantity is required
-                </label> -->
-              </div>
-  
-              <div class="col-lg-6 col-md-12">
-                <label>Quantity Type <i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                <select type="text" class="control-form" formControlName="productQuantityTypeId">
-                  <option value="">Select Quantity</option>
-                  <option>
-                   data
-                  </option>
-                </select>
-                <!-- <label *ngIf="submitted && f['productQuantityTypeId'].errors" class="invalid-formdata">
-                  Product Quantity Type is required
-                </label> -->
-              </div>
+        
+           
              
             </div>
           </div>
@@ -136,7 +80,7 @@
           <div class="this_row">
             <div class="row">
               <div class="col-lg-6 col-md-12">
-                <label>Product Name <i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <label>Product Model Name <i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <input type="text" class="control-form" formControlName="productName" />
                 <!-- <label *ngIf="submitted && f['productName'].errors" class="invalid-formdata">
                   Product Name is required
@@ -144,7 +88,7 @@
               </div>
   
               <div class="col-lg-6 col-md-12">
-                <label>SKU Id <i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <label>Model Id <i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <input type="text" class="control-form" formControlName="skuid" />
                 <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
                   Sku Id is required
@@ -164,7 +108,7 @@
               <div class="col-lg-6 col-md-12">
                 <label>Main Category <i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <select type="text" class="control-form" formControlName="subSubProductCategoryId">
-                    <option value="">Select Main Product</option>
+                    <option value="">Select Main Category</option>
                     <option>
                      data
                     </option>
@@ -175,40 +119,25 @@
               <div class="col-lg-6 col-md-12">
                 <label>Sub Category</label>
                <select type="text" class="control-form" formControlName="subSubProductCategoryId">
-                  <option value="">Select Sub  Product</option>
+                  <option value="">Select Sub  Category</option>
                   <option>
                    data
                   </option>
                 </select>
               </div>
   
-              <div class="col-lg-6 col-md-12">
-                <label>Sub Sub Category</label>
-                <select type="text" class="control-form" formControlName="subSubProductCategoryId">
-                  <option value="">Select Sub Sub Product</option>
-                  <option>
-                   data
-                  </option>
-                </select>
-              </div>
   
               <div class="col-lg-6 col-md-12">
-                <label>Group Id</label>
+                <label>Image Sensor</label>
                 <input type="text" numbersOnly class="control-form" formControlName="groupId" />
               </div>
   
               <div class="col-lg-6 col-md-12">
-                <label>Waiting Days</label>
+                <label>Max. Resolution</label>
                 <input type="text" numbersOnly class="control-form" formControlName="waitingDays" />
               </div>
   
-              <div class="col-lg-6 col-md-12">
-                <label>Speciality </label>
-                <select type="text" class="control-form" formControlName="speciality">
-                  <option value="1">Veg</option>
-                  <option value="2">NonVeg</option>
-                </select>
-              </div>
+             
   
               <div class="col-lg-6 col-md-12">
                 <label>Flavour</label>
@@ -216,15 +145,21 @@
               </div>
   
               <div class="col-lg-12 col-md-12">
-                <label>Product Description</label>
+                <label>Video Compression</label>
                 <textarea type="text" class="control-form" formControlName="productDescription"></textarea>
               </div>
+            </div>
+            <div class="col-lg-12 col-md-12 mt-40 text-center">
+              <button class="border-btn" type="submit" value="" data-toggle="modal" data-target="#cancel-mess">Cancel</button>
+              <button class="btn_blue" type="submit" >
+                Submit
+              </button>
             </div>
           </div>
         </div>
         <!-- end first form -->
   
-        <div class="vendor-form" style="background:#fff;">
+        <!-- <div class="vendor-form" style="background:#fff;">
           <h3>Additional Description (Optional)</h3>
           <div class="this_row">
             <div class="row">
@@ -266,7 +201,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- end first form -->
       </form>
     </div>

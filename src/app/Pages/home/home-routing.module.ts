@@ -12,6 +12,10 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { OrderListComponent } from './order-list/order-list/order-list.component';
+import { RestaurantListComponent } from './restaurant/restaurant-list/restaurant-list.component';
+import { RestaurantDetailsComponent } from './restaurant/restaurant-details/restaurant-details.component';
+import { AdminProfileComponent } from './profile/admin-profile/admin-profile.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 const routes: Routes = [
@@ -26,13 +30,17 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent },
+      { path: 'restaurant-list', component: RestaurantListComponent },
+      { path: 'restaurant-list/restaurant-details', component: RestaurantDetailsComponent },
+      { path: 'admin-profile', component: AdminProfileComponent },
+      { path: 'notification', component: NotificationComponent },
       { path: 'privacy-policy', component : PrivacyPolicyComponent},
       { path: 'terms-condition', component : TermsConditionComponent},
       { path: 'main-category', component: MainCategoryListComponent},
       { path: 'main-category/sub-category', component: SubCategoryListComponent},
-      { path: 'product-list', component: ProductListComponent},
+      { path: 'restaurant-list/restaurant-details/product-list', component: ProductListComponent},
       { path: 'product-list/detail', component: ProductDetailComponent},
-      { path: 'product-list/add', component: AddProductComponent},
+      { path: 'restaurant-list/restaurant-details/product-list/add', component: AddProductComponent},
       { path: 'product-list/edit', component: EditProductComponent},
       { path: 'order-list', component: OrderListComponent},
     ]   

@@ -1,0 +1,130 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center flex-wrap">
+            <div class="d-flex align-items-center sp-text mr-auto">
+                <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
+                <h4>Restaurant Details</h4>
+            </div>
+            <a [routerLink]="['/restaurant-list/restaurant-details/product-list']" class="view-more xxs-mt-20">Products</a>
+        </div>
+
+                <div class="vendor-form">
+                   
+                    <div class="vendor-form mt-40" style="background: #fff; padding-bottom: 60px;">
+                        <div class="this_row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <dl class="d-flex inform_text">
+                                        <dt>Restaurant Name:</dt>
+                                        <dd>{{restaurantDetail?.vendorName}}</dd>
+                                    </dl>
+                                    <dl class="d-flex inform_text">
+                                        <dt>Brand Name:</dt>
+                                        <dd>{{restaurantDetail?.brandName}}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <dl class="d-flex inform_text">
+                                        <dt>Shop Name:</dt>
+                                        <dd>{{restaurantDetail?.shopName}}</dd>
+                                    </dl>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vendor-form mt-30" style="background: #fff; padding-bottom: 60px;">
+                        <div class="this_row">
+                            <div class="row ">
+                                <div class="col-lg-12 col-md-12">
+                                    <dl class="d-flex inform_text">
+                                        <dt>Product Name:</dt>
+                                        <dd>{{restaurantDetail?.productName}}</dd>
+                                    </dl>
+                            
+                                    <dl class="d-flex inform_text">
+                                        <dt>Main Category Name:</dt>
+                                        <dd>{{restaurantDetail?.mainProductCategoryName}}</dd>
+                                    </dl>
+                                    <dl class="d-flex inform_text">
+                                        <dt>Sub Category Name:</dt>
+                                        <dd>{{restaurantDetail?.subProductCategoryName}}</dd>
+                                    </dl>
+                                    <dl class="d-flex inform_text">
+                                        <dt>Sub Sub Category Name:</dt>
+                                        <dd>{{restaurantDetail?.subSubProductCategoryName}}</dd>
+                                    </dl>
+        
+                                    <dl class=" inform_text">
+                                        <dt>Product Description :</dt>
+                                        <dd>
+                                            {{restaurantDetail?.productDescription}}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="vendor-form mt-40" style="background: #fff; padding-bottom: 60px;">
+                        <div class="this_row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                               
+                                    <dl class="d-flex inform_text">
+                                        <dt>Selling Price:</dt>
+                                        <dd>{{restaurantDetail?.sellingPrice}}</dd>
+                                    </dl>
+                                    <dl class="d-flex inform_text">
+                                        <dt>Manufacturing Date:</dt>
+                                        <dd>{{restaurantDetail?.manufacturingDate}}</dd>
+                                    </dl>
+                                    <dl class="d-flex inform_text">
+                                        <dt>Discount:</dt>
+                                        <dd>{{restaurantDetail?.discount}}</dd>
+                                    </dl>
+                                
+        
+                                    <dl class="d-flex inform_text">
+                                        <dt>Status Display:</dt>
+                                        <dd>{{restaurantDetail?.stausDisplay}}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                  
+                                    <dl class="d-flex inform_text">
+                                        <dt>MRP:</dt>
+                                        <dd>{{restaurantDetail?.mrp}}</dd>
+                                    </dl>
+                           
+                                    <dl class="d-flex inform_text">
+                                        <dt>Discount Type Name:</dt>
+                                        <dd>{{restaurantDetail?.discountTypeName}}</dd>
+                                    </dl>
+                                  
+                                    <dl class="d-flex inform_text">
+                                        <dt>Shipping Charges:</dt>
+                                        <dd>{{restaurantDetail?.shippingCharges}}</dd>
+                                    </dl>
+                                 
+        
+        
+        
+        
+        
+                                </div>
+                                <div class="col-lg-12">
+                                  
+                             
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+       
+        
+       
+    
+    </div>
+</div>

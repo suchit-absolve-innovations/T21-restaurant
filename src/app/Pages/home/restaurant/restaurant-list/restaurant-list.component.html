@@ -1,0 +1,78 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center flex-wrap">
+            <div class="d-flex align-items-center sp-text mr-auto">
+                <i class="fa fa-search"></i>
+                <h4>Search Restaurant</h4>
+            </div>
+           
+        </div>
+
+        <div class="table-box white-box mt-30">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Restaurant Name</th>
+                            <th>Address</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr>
+                            <td>Restaurant 1</td>
+                            <td>Karol Bagh</td>
+                            <td>15 August 2021</td>
+                            <td>Accepted</td>
+                            <td>
+                                <div class="action">
+                                    <a [routerLink]="['/restaurant-list/restaurant-details']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                                    <a  style="background: #ffdeff;"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Restaurant 2</td>
+                            <td>Sector 22</td>
+                            <td>12 july 2023</td>
+                            <td>Accepted</td>
+                            <td>
+                                <div class="action">
+                                    <a [routerLink]="['/restaurant-list/restaurant-details']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                                    <a  style="background: #ffdeff;"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Restaurant 3</td>
+                            <td>Phase 8, Mohali</td>
+                            <td>23 December 2023</td>
+                            <td>Accepted</td>
+                            <td>
+                                <div class="action">
+                                    <a  [routerLink]="['/restaurant-list/restaurant-details']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                                    <a  style="background: #ffdeff;"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
