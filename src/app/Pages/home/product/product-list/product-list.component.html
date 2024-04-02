@@ -1,68 +1,97 @@
 <div class="content-body">
     <div class="container-fluid">
-  
-        <div class="mt-30 d-flex align-items-center">
-            <h3 class="mr-auto">Product List</h3>
-            <a [routerLink]="['/product-list/add']" class="view-more">Add Product</a>
-        </div>
-  
-        <div class="mt-30 table-box">
-            <table class="table">
-               
-                <tr>
-                    <th>Product Name</th>
-                    <th>Product Image</th>
-                    <th>Quantity</th>
-                    <th>Category Name</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-  
-             
-                <tr>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                </tr>
-                <tr>
-                    <td>..1</td>
-                    <td>..1</td>
-                    <td>..1</td>
-                    <td>..1</td>
-                    <td>..1</td>
-                    <td>..1</td>
-                </tr>
-                <tr>
-                    <td>..2</td>
-                    <td>..2</td>
-                    <td>..2</td>
-                    <td>..2</td>
-                    <td>..2</td>
-                    <td>..2</td>
-                </tr>
 
-                <tr>
-                    <td>..3</td>
-                    <td>..3</td>
-                    <td>..3</td>
-                    <td>..3</td>
-                    <td>..3</td>
-                    <td>..3</td>
-                </tr>
-
-                <tr>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                    <td>..0</td>
-                </tr>
-  
-            </table>
+        <div class="d-flex align-items-center flex-wrap">
+            <div class="d-flex align-items-center sp-text mr-auto">
+                <i class="fa fa-search"></i>
+                <h4>Search Product</h4>
+            </div>
+            <a href="" class="view-more xxs-mt-20">Add Product</a>
         </div>
+        <div class="mt-30 table-box white-box">
+            <div class="row mb-30">
+                <div class="col-md-4 slt-cate">
+                    <label>Main Category</label>
+                    <select class="form-control">
+                        <option value="">Select</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4 slt-cate">
+                    <label>Sub Category</label>
+                    <select class="form-control">
+                        <option value="">Select</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 slt-cate">
+                    <label>Sub Sub Category</label>
+                    <select class="form-control">
+                        <option value="">Select</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+
+            </div>
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Image</th>
+                <th>Quality</th>
+                <th>Category Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>
+                    <a   style="background-color: inherit; text-decoration: none;" href=""><i class="fa fa-eye"></i></a>
+                    <!-- <a   style="background-color: inherit;" ><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a style="background-color: inherit;" ><i class="fa-solid fa-trash"></i></a>
+                </td> -->
+            </tr>
+            <tr>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>product</td>
+                <td>
+                    <a   style="background-color: inherit; text-decoration: none;" href=""><i class="fa fa-eye"></i></a>
+                    <!-- <a   style="background-color: inherit;" ><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a style="background-color: inherit;" ><i class="fa-solid fa-trash"></i></a>
+                </td> -->
+            </tr>
+        </tbody>
+
+    </table>
+
+
+</div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+       
     </div>
-  </div> 
+</div>

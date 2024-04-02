@@ -1,0 +1,15 @@
+.action a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    color: #222;
+    font-size: 11px;
+    line-height: 20px;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}

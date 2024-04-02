@@ -164,12 +164,17 @@ figure{margin: 0px;}
     height: 38px;
     line-height: 38px;
     border-radius: 50px;
+    text-decoration: none;
     color: #fff;
     padding: 0px 25px;
     cursor: pointer;
     display: inline-block;
     font-weight: 400;
 }
+.sp-text {
+    margin-right: auto;
+}
+
 .view-more:hover {
     background: #1ac4fb;
     color: #fff;
@@ -575,7 +580,12 @@ aside {
     border-radius: 7px;
     background: #fff;
 }
-
+.table-box {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 25px;
+    border-radius: 10px;
+  }
+  
 .table-box table{
     margin: 0px;
 }

@@ -14,6 +14,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { OrderListComponent } from './order-list/order-list/order-list.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     ProductDetailComponent,
     AddProductComponent,
     EditProductComponent,
+    OrderListComponent,
   ],
   imports: [
     CommonModule,

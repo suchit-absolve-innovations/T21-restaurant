@@ -11,6 +11,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { OrderListComponent } from './order-list/order-list/order-list.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'product-list/detail', component: ProductDetailComponent},
       { path: 'product-list/add', component: AddProductComponent},
       { path: 'product-list/edit', component: EditProductComponent},
+      { path: 'order-list', component: OrderListComponent},
     ]   
   }
 ];
