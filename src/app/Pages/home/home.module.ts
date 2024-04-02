@@ -15,7 +15,7 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { OrderListComponent } from './order-list/order-list/order-list.component';
-
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { OrderListComponent } from './order-list/order-list/order-list.component
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    AngularEditorModule
+    AngularEditorModule,
+    CanvasJSAngularChartsModule
   ]
 })
 export class HomeModule { }

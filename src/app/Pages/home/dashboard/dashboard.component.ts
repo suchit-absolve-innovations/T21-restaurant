@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContentService } from 'src/app/shared/service/content.service';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
