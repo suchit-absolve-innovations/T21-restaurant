@@ -57,27 +57,17 @@ export class LayoutComponent implements OnInit {
     if (this.userRole == 'SuperAdmin') {
       this.userRole = 'superAdmin'
     }
-    if (this.userRole == 'Admin') {
-      this.userRole = 'admin'
-    } if (this.userRole == 'Vendor') {
-      this.userRole = 'vendor'
-    }
-    if (this.userRole == 'Distributor') {
-      this.userRole = 'distributor'
-    }
+    if (this.userRole == 'Restaurant') {
+      this.userRole = 'restaurant'
+    } 
+
 
     switch (this.userRole) {
       case 'superAdmin':
         this.routes = RoleRoutes['SuperAdmin'];
         break;
       case 'admin':
-        this.routes = RoleRoutes['Admin'];
-        break;
-      case 'vendor':
-        this.routes = RoleRoutes['Vendor'];
-        break;
-      case 'distributor':
-        this.routes = RoleRoutes['Distributor'];
+        this.routes = RoleRoutes['Restaurant'];
         break;
     }
   }
