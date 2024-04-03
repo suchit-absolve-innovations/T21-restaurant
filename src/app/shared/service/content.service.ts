@@ -13,7 +13,7 @@ export class ContentService {
   /*** Dashboard Api's ***/
 
   // userList(data: any) {
-  //   return this.http.post<any>(environment.apiUrl + ApiEndPoint.userLists, data).pipe(map((data: any) => {3
+  //   return this.http.post<any>(environment.apiUrl + ApiEndPoint.userLists, data).pipe(map((data: any) => {
   //     return data;
   //   }));
   // }
@@ -25,7 +25,7 @@ export class ContentService {
   // }
 
   /********* Set data in local storage **********/
-  setLocalData(key: string, data: any, json?: boolean) {
+  setLocalData(key: string, data: any, json?: boolean) {        
     localStorage.setItem(key, json ? JSON.stringify(data) : data);
   }
 
