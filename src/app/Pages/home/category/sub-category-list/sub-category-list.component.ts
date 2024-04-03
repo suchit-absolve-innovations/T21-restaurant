@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-sub-category-list',
   templateUrl: './sub-category-list.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubCategoryListComponent implements OnInit {
 
-  constructor() { }
+  constructor(    private _location: Location,
+    ) { }
 
   ngOnInit(): void {
   }
-
+  backClicked() {
+    this._location.back();
+  }
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-order-details',
+  templateUrl: './order-details.component.html',
+  styleUrls: ['./order-details.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class OrderDetailsComponent implements OnInit {
   restaurantDetail:any;
   rootUrl: any;
   constructor(
@@ -22,3 +22,4 @@ export class ProductDetailComponent implements OnInit {
   }
 
 }
+

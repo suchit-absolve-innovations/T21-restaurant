@@ -1080,3 +1080,13 @@ label.upload.button.btn.btn-primary {
     .input-forms {max-width: 300px}
     .input-forms h2{font-size: 24px; font-weight: 700;}
 }
+.ngx-pagination {
+    text-align: right !important;
+}
+ul.ngx-pagination.ng-star-inserted {
+    margin-top: 25px;
+}
+.ngx-pagination .current {
+    background: #002C6F!important;
+    color: #fefefe;
+}

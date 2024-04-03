@@ -16,6 +16,16 @@ import { RestaurantListComponent } from './restaurant/restaurant-list/restaurant
 import { RestaurantDetailsComponent } from './restaurant/restaurant-details/restaurant-details.component';
 import { AdminProfileComponent } from './profile/admin-profile/admin-profile.component';
 import { NotificationComponent } from './notification/notification.component';
+import { OrderDetailsComponent } from './order-list/order-details/order-details.component';
+import { MainCategoryAddComponent } from './category/main-category-add/main-category-add.component';
+import { MainCategoryEditComponent } from './category/main-category-edit/main-category-edit.component';
+import { SubCategoryAddComponent } from './category/sub-category-add/sub-category-add.component';
+import { SubCategoryEditComponent } from './category/sub-category-edit/sub-category-edit.component';
+import { RestaurantProfileComponent } from './profile/restaurant-profile/restaurant-profile.component';
+import { BannersListComponent } from './banner/banners-list/banners-list.component';
+import { BannersAddComponent } from './banner/banners-add/banners-add.component';
+import { BannersDetailComponent } from './banner/banners-detail/banners-detail.component';
+import { BannerEditComponent } from './banner/banner-edit/banner-edit.component';
 
 
 const routes: Routes = [
@@ -29,20 +39,37 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      ///Admin ////
       { path: '', component: DashboardComponent },
       { path: 'restaurant-list', component: RestaurantListComponent },
       { path: 'restaurant-list/restaurant-details', component: RestaurantDetailsComponent },
+      { path: 'restaurant-list/restaurant-details/product-list', component: ProductListComponent},
+      { path: 'restaurant-list/restaurant-details/product-list/product-detail', component: ProductDetailComponent},
       { path: 'admin-profile', component: AdminProfileComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'privacy-policy', component : PrivacyPolicyComponent},
       { path: 'terms-condition', component : TermsConditionComponent},
-      { path: 'main-category', component: MainCategoryListComponent},
-      { path: 'main-category/sub-category', component: SubCategoryListComponent},
-      { path: 'restaurant-list/restaurant-details/product-list', component: ProductListComponent},
-      { path: 'product-list/detail', component: ProductDetailComponent},
-      { path: 'restaurant-list/restaurant-details/product-list/add', component: AddProductComponent},
-      { path: 'product-list/edit', component: EditProductComponent},
+    
+      ///Restaurant///
       { path: 'order-list', component: OrderListComponent},
+      { path: 'order-list/order-details', component: OrderDetailsComponent},   
+      { path: 'product-list', component: ProductListComponent},
+      { path: 'product-list/add', component: AddProductComponent},
+      { path: 'product-list/detail', component: ProductDetailComponent},
+      { path: 'product-list/edit', component: EditProductComponent},
+      { path: 'main-category', component: MainCategoryListComponent},
+      { path: 'main-category/main-category-add', component: MainCategoryAddComponent},
+      { path: 'main-category/main-category-edit', component: MainCategoryEditComponent},
+      { path: 'main-category/sub-category', component: SubCategoryListComponent},
+      { path: 'main-category/sub-category/sub-category-add', component: SubCategoryAddComponent},
+      { path: 'main-category/sub-category/sub-category-edit', component: SubCategoryEditComponent},
+      { path: 'banner-list', component: BannersListComponent},
+      { path: 'banner-list/banner-add', component: BannersAddComponent},
+      { path: 'banner-list/banner-details', component: BannersDetailComponent},
+      { path: 'banner-list/banner-edit', component: BannerEditComponent},
+      { path: 'notification', component: NotificationComponent },
+      { path: 'Restaurant-profile', component: RestaurantProfileComponent},
+
     ]   
   }
 ];
