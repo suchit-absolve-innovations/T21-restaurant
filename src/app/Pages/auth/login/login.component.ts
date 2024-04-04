@@ -42,10 +42,9 @@ export class LoginComponent implements OnInit {
   // login form
   setConfigurationOfLoginForm() {
     this.loginForm = this.formBuilder.group({
-      emailPhone: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      deviceType: [''],
-      deviceToken: [''],
+      emailOrPhone: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+   
     });
   }
 
@@ -70,27 +69,29 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onLogin() {
     this.submitted = true;
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
+    if (this.loginForm.invalid) {
+      return;
+    }
     this.spinner.show();
     this.loginModel = this.loginForm.value;
+    debugger
     this.auth.login(this.loginModel).subscribe((response) => {
-      if (response.message) {
+      if (response.messages) {
         this.spinner.hide();
-        // localStorage.setItem('currentUser', JSON.stringify(response.data));
+        debugger
         this.router.navigateByUrl('/dashboard');
       } else {
         this.spinner.hide();
+        
       }
     });
   }
   
 
   // tslint:disable-next-line: use-lifecycle-interface
-  ngOnDestroy() {
-    this.renderer.removeClass(document.querySelector('app-root'), 'login-page');
-  }
+  // ngOnDestroy() {
+  //   this.renderer.removeClass(document.querySelector('app-root'), 'login-page');
+  // }
 }

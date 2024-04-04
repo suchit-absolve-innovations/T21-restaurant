@@ -13,7 +13,7 @@ export class ContentService {
   /*** Dashboard Api's ***/
 
   // userList(data: any) {
-  //   return this.http.post<any>(environment.apiUrl + ApiEndPoint.userLists, data).pipe(map((data: any) => {
+  //   return this.http.post<any>(environment.apiUrl + ApiEndPoint.userLists, data).pipe(map((data: any) => {                                         
   //     return data;
   //   }));
   // }

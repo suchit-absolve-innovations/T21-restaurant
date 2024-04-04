@@ -31,10 +31,11 @@ export class AuthService {
       return this.http.post<any>(environment.apiUrl + ApiEndPoint.login,user)
         // tslint:disable-next-line: no-shadowed-variable
         .pipe(map(user => {
-          if (user.status) {
+          if (user.data) {
             localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('loginRole', user.data.role);
+        localStorage.setItem('restaurantId', user.data.restaurantId);
              this.currentUserSubject.next(user);
-            // this.router.navigateByUrl('/dashboard');
           } else {
             this.router.navigateByUrl('/login')
           }
