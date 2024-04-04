@@ -59,7 +59,7 @@ const routes: Routes = [
       { path: 'product-list/edit', component: EditProductComponent},
       { path: 'main-category', component: MainCategoryListComponent},
       { path: 'main-category/main-category-add', component: MainCategoryAddComponent},
-      { path: 'main-category/main-category-edit', component: MainCategoryEditComponent},
+      { path: 'main-category/main-category-edit/:id', component: MainCategoryEditComponent},
       { path: 'main-category/sub-category', component: SubCategoryListComponent},
       { path: 'main-category/sub-category/sub-category-add', component: SubCategoryAddComponent},
       { path: 'main-category/sub-category/sub-category-edit', component: SubCategoryEditComponent},

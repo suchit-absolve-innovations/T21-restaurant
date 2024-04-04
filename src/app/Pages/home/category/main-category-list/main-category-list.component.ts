@@ -30,20 +30,40 @@ export class MainCategoryListComponent implements OnInit {
     this.getMainCategory();
   }
 
+  /** Main Category List */
+
   getMainCategory() {
-   this.spinner.show(); 
+    this.spinner.show();
     this.categoryService
       .getcategory(this.restaurantId)
-      .subscribe(response => {
+      .subscribe((response) => {
         if (response.isSuccess == true) {
           this.categoryList = response.data;
           this.spinner.hide();
           this.toaster.success(response.messages);
-         
         } else {
           this.spinner.hide();
           this.toaster.error(response.messages);
         }
       });
+  }
+
+  /** delete main category */
+  deleteMainCategory(data: any) {
+    this.spinner.show();
+    let payload = {
+      mainCategoryId: data,
+      restaurantId: this.restaurantId,
+    };
+    this.categoryService.mainCategoryDelete(payload).subscribe((response) => {
+      if (response.isSuccess) {
+        this.spinner.hide();
+        window.location.reload();
+        this.toaster.success(response.messages);
+      } else {
+        this.spinner.hide();
+        this.toaster.error(response.messages);
+      }
+    });
   }
 }

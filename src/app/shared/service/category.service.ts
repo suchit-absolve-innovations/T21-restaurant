@@ -16,4 +16,24 @@ export class CategoryService {
     getcategory(restaurantId: any) {
       return this.http.get<any>(environment.apiUrl + ApiEndPoint.mainCategoryList + '?restaurantId=' + restaurantId);
     }
+
+
+      // Category Delete
+
+  mainCategoryDelete(data: any) {
+    return this.http.delete<any>(environment.apiUrl + ApiEndPoint.deleteMainCategory + '?mainCategoryId=' + data.mainCategoryId + '&restaurantId=' + data.restaurantId);
+  }
+
+    //  Add Category
+    addCategory(data: any) {
+      return this.http.post<any>(environment.apiUrl + ApiEndPoint.addCategory, data);
+    }
+
+    editCategory(data: any) {
+      return this.http.post<any>(environment.apiUrl + ApiEndPoint.editCategory, data);
+    }
+
+    categoryDetail(MainProductCategoryId: any) {
+      // return this.http.get<any>(environment.apiUrl + ApiEndPoint.categoryDetail + '?MainProductCategoryId=' + MainProductCategoryId);
+    }
 }
