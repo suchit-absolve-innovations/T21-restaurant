@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   // login form
   setConfigurationOfLoginForm() {
     this.loginForm = this.formBuilder.group({
-      emailPhone: ['', [Validators.required, Validators.email]],
+      emailOrPhone: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
    
     });
@@ -76,10 +76,13 @@ export class LoginComponent implements OnInit {
     }
     this.spinner.show();
     this.loginModel = this.loginForm.value;
+    debugger
     this.auth.login(this.loginModel).subscribe((response) => {
-      if (response.message) {
+      if (response.messages) {
         this.spinner.hide();
         localStorage.setItem('currentUser', JSON.stringify(response.data));
+        localStorage.setItem('loginRole', response.data.role)
+        debugger
         this.router.navigateByUrl('/dashboard');
       } else {
         this.spinner.hide();

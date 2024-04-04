@@ -33,7 +33,9 @@ export class LayoutComponent implements OnInit {
     if (toggleState) {
       this.showSubRoutes = JSON.parse(toggleState);
     }
-    this.userRole = localStorage.getItem('role');
+    debugger
+    this.userRole = localStorage.getItem('loginRole');
+    console.log(this.userRole.role)
     this.routes = this.routes.map(item => {
       item['isSelected'] = false;
       return item

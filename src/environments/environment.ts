@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://t21api-dev.us-east-2.elasticbeanstalk.com/swagger/index.html',
+  apiUrl: 'http://t21api-dev.us-east-2.elasticbeanstalk.com/',
   rootPathUrl: 'https://t21-dev-file.s3.us-east-2.amazonaws.com/FileToSave/',
 
   firebase: {

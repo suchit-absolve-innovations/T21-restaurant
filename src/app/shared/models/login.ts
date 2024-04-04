@@ -1,7 +1,6 @@
 export class Login {
-    emailPhone!: string;
+    emailOrPhone!: string;
     password!: string;
-    deviceType!: any;
-    deviceToken!: any;
-     data!: any;
+  data: any;
+  
 }
