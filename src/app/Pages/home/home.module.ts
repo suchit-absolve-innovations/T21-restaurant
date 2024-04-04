@@ -31,6 +31,9 @@ import { SubCategoryAddComponent } from './category/sub-category-add/sub-categor
 import { SubCategoryEditComponent } from './category/sub-category-edit/sub-category-edit.component';
 import { RestaurantProfileComponent } from './profile/restaurant-profile/restaurant-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+import { AddRestaurantComponent } from './restaurant/add-restaurant/add-restaurant.component';
+import { EditRestaurantComponent } from './restaurant/edit-restaurant/edit-restaurant.component';
 
 
 
@@ -60,6 +63,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SubCategoryAddComponent,
     SubCategoryEditComponent,
     RestaurantProfileComponent,
+    AddRestaurantComponent,
+    EditRestaurantComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +75,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AngularEditorModule,
     CanvasJSAngularChartsModule,
     NgxPaginationModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ]
 })
 export class HomeModule { }

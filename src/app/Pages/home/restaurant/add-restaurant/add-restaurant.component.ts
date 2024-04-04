@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-add-restaurant',
+  templateUrl: './add-restaurant.component.html',
+  styleUrls: ['./add-restaurant.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddRestaurantComponent implements OnInit {
   imageFile!: { link: any; file: any; name: any; type: any };
   urls: string[] = [];
+  form!: FormGroup;
+  submitted = false;
+  
   constructor(
     private _location: Location,
   ) { }
 
   ngOnInit(): void {
   }
+  
   onselect(event: any) {
     const files = event.target.files;
     for (let i = 0; i < files.length; i++) {
@@ -27,10 +32,13 @@ export class AddProductComponent implements OnInit {
       };
     }
   }
-  
-  
+  get f() {
+    return this.form['controls'];
+  }
+
   backClicked() {
     this._location.back();
   }
 }
+
 

@@ -26,6 +26,8 @@ import { BannersListComponent } from './banner/banners-list/banners-list.compone
 import { BannersAddComponent } from './banner/banners-add/banners-add.component';
 import { BannersDetailComponent } from './banner/banners-detail/banners-detail.component';
 import { BannerEditComponent } from './banner/banner-edit/banner-edit.component';
+import { AddRestaurantComponent } from './restaurant/add-restaurant/add-restaurant.component';
+import { EditRestaurantComponent } from './restaurant/edit-restaurant/edit-restaurant.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'restaurant-list', component: RestaurantListComponent },
       { path: 'restaurant-list/restaurant-details', component: RestaurantDetailsComponent },
+      { path: 'restaurant-list/add-restaurant', component: AddRestaurantComponent },
+      { path: 'restaurant-list/edit-restaurant', component: EditRestaurantComponent },
       { path: 'restaurant-list/restaurant-details/product-list', component: ProductListComponent},
       { path: 'restaurant-list/restaurant-details/product-list/product-detail', component: ProductDetailComponent},
       { path: 'admin-profile', component: AdminProfileComponent },

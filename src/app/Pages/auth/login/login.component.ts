@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.submitted = true;
     if (this.loginForm.invalid) {
+      this.toasterService.error('Incorrect Username');
       return;
     }
     this.spinner.show();
@@ -84,7 +85,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/dashboard');
       } else {
         this.spinner.hide();
-        
+        this.toasterService.error('Incorrect Username');
       }
     });
   }
