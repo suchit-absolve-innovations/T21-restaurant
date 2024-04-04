@@ -6,10 +6,24 @@
 
          <h2>Login Account</h2>
          <span>Let's get you started!</span>
+
+         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
          <div class="mt-30"></div>
 
-         <input type="text" class="form-control user" placeholder="Username">
-         <input type="password" class="form-control password" placeholder="Password">
+         <input type="text" class="form-control user" placeholder="Username" formControlName="emailOrPhone"
+         [ngClass]="{ 'is-invalid': submitted && f['emailOrPhone'].errors }">
+  <div *ngIf="submitted && f['emailOrPhone'].errors" class="help-block">
+      <div *ngIf="f['emailOrPhone'].errors['required']" style="color: #fd0000;">Email or Phone is required</div>
+  </div>
+  
+         <input type="password" class="form-control password" placeholder="Password" formControlName="password"
+         [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+         <div *ngIf="submitted && f['password'].errors" class="help-block"
+         [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+         <div *ngIf="f['password'].errors['required']" style="color: #fd0000; margin-top: 3px;">
+             Password is
+             required</div>
+     </div>
 
          <div class="signed-in text-center">
              <input type="checkbox" class="">
@@ -22,7 +36,7 @@
              <p>New to Maxemus<a href="#"> Create Account</a></p>
              <p>Need Help<a href="#"> Contact support</a></p>           
          </div> -->
-
+        </form>
      </div>           
      
  </div>

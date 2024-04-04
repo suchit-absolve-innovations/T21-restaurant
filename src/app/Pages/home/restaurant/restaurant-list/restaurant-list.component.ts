@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from '../restaurant.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -6,10 +9,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-list.component.css']
 })
 export class RestaurantListComponent implements OnInit {
-
-  constructor() { }
+  list: any[] = [];
+  page: number = 0;
+  itemsPerPage!: number;
+  totalItems!: number;
+  constructor(
+    private restaurantService: RestaurantService,
+    private toaster: ToastrService,
+    private spinner: NgxSpinnerService,
+    ) { }
 
   ngOnInit(): void {
+    this.fetchRestaurantList();
+  }
+  fetchRestaurantList() {
+    let payload = {
+      pageNumber: 1,
+      pageSize: 100
+    }
+    this.restaurantService.getRestaurantList(payload).subscribe(response => {
+      if (response.isSuccess) {
+        this.toaster.success(response.messages);
+        this.list = response.data.dataList
+      } else {
+        this.toaster.error(response.messages)
+      }
+    })
   }
 
 }
