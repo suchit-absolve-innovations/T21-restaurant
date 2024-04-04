@@ -753,7 +753,7 @@ aside.open .copyright{
 .action {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    max-width: 115px;
+    max-width: 60px;
 }
 .action a {
     width: 26px;
@@ -761,6 +761,7 @@ aside.open .copyright{
     display: block;
     border-radius: 5px;
     text-align: center;
+    margin-right: 10px;
     color: #222;
     font-size: 14px;
     line-height: 20px;
