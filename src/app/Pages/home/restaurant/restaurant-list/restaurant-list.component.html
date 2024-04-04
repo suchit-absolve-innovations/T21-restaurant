@@ -20,7 +20,25 @@
                             <th>Action</th>
                         </tr>
 
-                        <tr>
+
+                        <tr
+                        *ngFor="let item of list  | paginate: {itemsPerPage: 10, currentPage: page, totalItems: totalItems,id: '1' }  ">
+                        <td class="profile">
+                            {{item?.firstName}} {{item?.lastName}}
+                        </td>
+                        <!-- <td class="profile"> <img class="img-responsive" [src]="rootUrl + item?.profilepic"></td> -->
+                        <td>{{item.restaurantName}}</td>
+                        <td>{{item.streetAddress}}</td>
+                        <div class="action">
+                            <a [routerLink]="['/restaurant-list/restaurant-details']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                            <a  style="background: #ffdeff;"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
+
+                        </div>
+                       </tr>
+
+                        <!-- <tr>
                             <td>Restaurant 1</td>
                             <td>Karol Bagh</td>
                             <td>15 August 2021</td>
@@ -67,7 +85,7 @@
                                 </div>
                             </td>
 
-                        </tr>
+                        </tr> -->
 
 
                     </tbody>

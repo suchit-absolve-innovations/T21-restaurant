@@ -34,7 +34,7 @@ export class AuthService {
           if (user.status) {
             localStorage.setItem('currentUser', JSON.stringify(user));
              this.currentUserSubject.next(user);
-            // this.router.navigateByUrl('/dashboard');
+            this.router.navigateByUrl('/dashboard');
           } else {
             this.router.navigateByUrl('/login')
           }
