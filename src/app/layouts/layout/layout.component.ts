@@ -28,12 +28,11 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSubAdminPermissions();
-    this.setRouts();
+  //  this.setRouts();
     const toggleState = localStorage.getItem('toggleState');
     if (toggleState) {
       this.showSubRoutes = JSON.parse(toggleState);
     }
-    debugger
     this.userRole = localStorage.getItem('loginRole');
     console.log(this.userRole.role)
     this.routes = this.routes.map(item => {
@@ -54,25 +53,25 @@ export class LayoutComponent implements OnInit {
     localStorage.setItem('toggleState', JSON.stringify(this.showSubRoutes));
   }
 
-  setRouts() {
-    this.userRole = localStorage.getItem('role');
-    if (this.userRole == 'SuperAdmin') {
-      this.userRole = 'superAdmin'
-    }
-    if (this.userRole == 'Restaurant') {
-      this.userRole = 'restaurant'
-    } 
+  // setRouts() {
+  //   this.userRole = localStorage.getItem('role');
+  //   if (this.userRole == 'SuperAdmin') {
+  //     this.userRole = 'superAdmin'
+  //   }
+  //   if (this.userRole == 'Restaurant') {
+  //     this.userRole = 'restaurant'
+  //   } 
 
 
-    switch (this.userRole) {
-      case 'superAdmin':
-        this.routes = RoleRoutes['SuperAdmin'];
-        break;
-      case 'admin':
-        this.routes = RoleRoutes['Restaurant'];
-        break;
-    }
-  }
+  //   switch (this.userRole) {
+  //     case 'superAdmin':
+  //       this.routes = RoleRoutes['SuperAdmin'];
+  //       break;
+  //     case 'admin':
+  //       this.routes = RoleRoutes['Restaurant'];
+  //       break;
+  //   }
+  // }
 
   private getSubAdminPermissions() {
     this.userRole = localStorage.getItem('role');

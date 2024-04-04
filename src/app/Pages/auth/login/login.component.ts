@@ -80,8 +80,6 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginModel).subscribe((response) => {
       if (response.messages) {
         this.spinner.hide();
-        localStorage.setItem('currentUser', JSON.stringify(response.data));
-        localStorage.setItem('loginRole', response.data.role)
         debugger
         this.router.navigateByUrl('/dashboard');
       } else {
