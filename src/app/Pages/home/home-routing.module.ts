@@ -44,9 +44,9 @@ const routes: Routes = [
       ///Admin ////
       { path: '', component: DashboardComponent },
       { path: 'restaurant-list', component: RestaurantListComponent },
-      { path: 'restaurant-list/restaurant-details', component: RestaurantDetailsComponent },
+      { path: 'restaurant-list/restaurant-details/:id', component: RestaurantDetailsComponent },
       { path: 'restaurant-list/add-restaurant', component: AddRestaurantComponent },
-      { path: 'restaurant-list/edit-restaurant', component: EditRestaurantComponent },
+      { path: 'restaurant-list/edit-restaurant/:id', component: EditRestaurantComponent },
       { path: 'restaurant-list/restaurant-details/product-list', component: ProductListComponent},
       { path: 'restaurant-list/restaurant-details/product-list/product-detail', component: ProductDetailComponent},
       { path: 'admin-profile', component: AdminProfileComponent },

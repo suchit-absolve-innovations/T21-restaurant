@@ -31,8 +31,8 @@
                         <td>{{item.createDate}}</td>
                         <td>{{item.status}}</td>
                         <div class="action">
-                            <a [routerLink]="['/restaurant-list/restaurant-details']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
-                            <a [routerLink]="['/restaurant-list/edit-restaurant']"  style="background: #ffdeff;"><i
+                            <a [routerLink]="['/restaurant-list/restaurant-details/' + item.userId]" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                            <a [routerLink]="['/restaurant-list/edit-restaurant/' + item.userId]"  style="background: #ffdeff;"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
                             <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
 

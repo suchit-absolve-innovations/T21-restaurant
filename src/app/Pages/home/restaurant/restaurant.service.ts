@@ -16,5 +16,13 @@ export class RestaurantService {
     return this.http.get<any>(environment.apiUrl + ApiEndPoint.restaurantList, { params: data }).pipe(
     );
   }
+  getRestaurantdetails(userId: any) {
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.restaurantDetail + '?userId=' + userId);
+  }
+
+  addRestaurant(data: any) {
+      return this.http.post<any>(environment.apiUrl + ApiEndPoint.addRestaurants, data);
+    }
+  
 }
 

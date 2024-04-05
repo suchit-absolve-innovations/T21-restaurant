@@ -5,126 +5,109 @@
                 <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
                 <h4>Restaurant Details</h4>
             </div>
-            <a [routerLink]="['/restaurant-list/restaurant-details/product-list']" class="view-more xxs-mt-20">Products</a>
+            <a [routerLink]="['/restaurant-list/restaurant-details/product-list']"
+                class="view-more xxs-mt-20">Products</a>
+        </div>
+        <div class="object-product-detail-img image-back mt-40 mx-auto" style="background: #fff; ">
+            <img class="image" [src]="rootUrl + userDetail?.profilePic">
         </div>
 
-                <div class="vendor-form">
-                   
-                    <div class="vendor-form mt-40" style="background: #fff; padding-bottom: 60px;">
-                        <div class="this_row">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <dl class="d-flex inform_text">
-                                        <dt>Restaurant Name:</dt>
-                                        <dd>{{restaurantDetail?.vendorName}}</dd>
-                                    </dl>
-                                    <dl class="d-flex inform_text">
-                                        <dt>Brand Name:</dt>
-                                        <dd>{{restaurantDetail?.brandName}}</dd>
-                                    </dl>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <dl class="d-flex inform_text">
-                                        <dt>Shop Name:</dt>
-                                        <dd>{{restaurantDetail?.shopName}}</dd>
-                                    </dl>
-        
-                                </div>
-                            </div>
+        <div class="vendor-form">
+            <h3>User Details</h3>
+            <div class="vendor-form mt-20" style="background: #fff; padding-bottom: 60px;">
+                <div class="this_row">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <dl class="d-flex inform_text">
+                                <dt>Full Name:</dt>
+                                <dd>{{userDetail?.firstName}} {{userDetail?.lastName}}</dd>
+                            </dl>
+                            <dl class="d-flex inform_text">
+                                <dt>Gender:</dt>
+                                <dd>{{userDetail?.gender}}</dd>
+                            </dl>
+                            <dl class="d-flex inform_text">
+                                <dt>Country:</dt>
+                                <dd>{{userDetail?.countryName}}</dd>
+                            </dl>
                         </div>
-                    </div>
-                    <div class="vendor-form mt-30" style="background: #fff; padding-bottom: 60px;">
-                        <div class="this_row">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12">
-                                    <dl class="d-flex inform_text">
-                                        <dt>Product Name:</dt>
-                                        <dd>{{restaurantDetail?.productName}}</dd>
-                                    </dl>
-                            
-                                    <dl class="d-flex inform_text">
-                                        <dt>Main Category Name:</dt>
-                                        <dd>{{restaurantDetail?.mainProductCategoryName}}</dd>
-                                    </dl>
-                                    <dl class="d-flex inform_text">
-                                        <dt>Sub Category Name:</dt>
-                                        <dd>{{restaurantDetail?.subProductCategoryName}}</dd>
-                                    </dl>
-                                    <dl class="d-flex inform_text">
-                                        <dt>Sub Sub Category Name:</dt>
-                                        <dd>{{restaurantDetail?.subSubProductCategoryName}}</dd>
-                                    </dl>
-        
-                                    <dl class=" inform_text">
-                                        <dt>Product Description :</dt>
-                                        <dd>
-                                            {{restaurantDetail?.productDescription}}</dd>
-                                    </dl>
-                                </div>
-                            </div>
+                        <div class="col-lg-6 col-md-12">
+                            <dl class="d-flex inform_text">
+                                <dt>Phone Number:</dt>
+                                <dd>{{userDetail?.dialCode}} {{userDetail?.phoneNumber}}</dd>
+                            </dl>
+                            <dl class="d-flex inform_text">
+                                <dt> Email:</dt>
+                                <dd>{{userDetail?.email}} </dd>
+                            </dl>
+                            <dl class="d-flex inform_text">
+                                <dt> State:</dt>
+                                <dd>{{userDetail?.stateName}} </dd>
+                            </dl>
                         </div>
+
                     </div>
-        
-                    <div class="vendor-form mt-40" style="background: #fff; padding-bottom: 60px;">
-                        <div class="this_row">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                               
-                                    <dl class="d-flex inform_text">
-                                        <dt>Selling Price:</dt>
-                                        <dd>{{restaurantDetail?.sellingPrice}}</dd>
-                                    </dl>
-                                    <dl class="d-flex inform_text">
-                                        <dt>Manufacturing Date:</dt>
-                                        <dd>{{restaurantDetail?.manufacturingDate}}</dd>
-                                    </dl>
-                                    <dl class="d-flex inform_text">
-                                        <dt>Discount:</dt>
-                                        <dd>{{restaurantDetail?.discount}}</dd>
-                                    </dl>
-                                
-        
-                                    <dl class="d-flex inform_text">
-                                        <dt>Status Display:</dt>
-                                        <dd>{{restaurantDetail?.stausDisplay}}</dd>
-                                    </dl>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                  
-                                    <dl class="d-flex inform_text">
-                                        <dt>MRP:</dt>
-                                        <dd>{{restaurantDetail?.mrp}}</dd>
-                                    </dl>
-                           
-                                    <dl class="d-flex inform_text">
-                                        <dt>Discount Type Name:</dt>
-                                        <dd>{{restaurantDetail?.discountTypeName}}</dd>
-                                    </dl>
-                                  
-                                    <dl class="d-flex inform_text">
-                                        <dt>Shipping Charges:</dt>
-                                        <dd>{{restaurantDetail?.shippingCharges}}</dd>
-                                    </dl>
-                                 
-        
-        
-        
-        
-        
-                                </div>
-                                <div class="col-lg-12">
-                                  
-                             
-                            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
                 </div>
-       
-        
-       
-    
+            </div>
+            <div class="mt-30">
+                <h3>Restaurant Details</h3>
+                <div class="vendor-form mt-10" style="background: #fff; padding-bottom: 60px;">
+                    <div class="this_row">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-12">
+                                <dl class="d-flex inform_text">
+                                    <dt>Restaurant Name:</dt>
+                                    <dd>{{restaurantDetail?.name}}</dd>
+                                </dl>
+
+                                <dl class="d-flex inform_text">
+                                    <dt>Create Date:</dt>
+                                    <dd>{{restaurantDetail?.createDate}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>Opening Time:</dt>
+                                    <dd>{{restaurantDetail?.openingTime}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>Country:</dt>
+                                    <dd>{{restaurantDetail?.countryName}}</dd>
+                                </dl>
+                             
+                                <dl class=" inform_text">
+                                    <dt>Address :</dt>
+                                    <dd>
+                                        {{restaurantDetail?.streetAddress}}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <dl class="d-flex inform_text">
+                                    <dt>Phone Number:</dt>
+                                    <dd>{{restaurantDetail?.phoneNumber}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>Tax Applicable:</dt>
+                                    <dd>{{restaurantDetail?.taxApplicable}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>Closing TIme:</dt>
+                                    <dd>{{restaurantDetail?.closingTime}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>State:</dt>
+                                    <dd>{{restaurantDetail?.stateName}}</dd>
+                                </dl>
+                                <dl class="d-flex inform_text">
+                                    <dt>Staus:</dt>
+                                    <dd>{{restaurantDetail?.status}}</dd>
+                                </dl>
+                               
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

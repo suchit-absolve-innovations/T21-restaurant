@@ -11,6 +11,13 @@ export class ContentService {
   constructor(private http: HttpClient) {}
 
   /*** Dashboard Api's ***/
+  getAllCountries() {
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.getCountry)
+  }    
+
+  getAllStates(countryId: any) {
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.getState + '?countryId=' + countryId)
+  }
 
   // userList(data: any) {
   //   return this.http.post<any>(environment.apiUrl + ApiEndPoint.userLists, data).pipe(map((data: any) => {                                         

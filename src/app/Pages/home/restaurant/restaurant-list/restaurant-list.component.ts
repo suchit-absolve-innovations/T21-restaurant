@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -13,13 +15,19 @@ export class RestaurantListComponent implements OnInit {
   page: number = 0;
   itemsPerPage!: number;
   totalItems!: number;
+  rootUrl: any;
   constructor(
     private restaurantService: RestaurantService,
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 0; 
+    });
+    this.rootUrl = environment.rootPathUrl;
     this.restaurantList();
   }
   restaurantList() {
