@@ -7,7 +7,7 @@
         </div>
     </div>
         <form [formGroup]="form">
-          <div class="vendor-form input-form mt-40 bg-white" >
+          <div class="vendor-form input-form mt-40 bg-white"  formGroupName="personalProfile">
              <h3>Personal Profile</h3>
             <div class="this_row">
               <div class="row">
@@ -103,7 +103,7 @@
           </div>
           <!-- end first form -->
     
-          <div class="vendor-form bg-white">
+          <div class="vendor-form bg-white" formGroupName="restaurant">
             <h3>Restaurant Detail</h3>
             <div class="this_row">
               <div class="row">
@@ -125,7 +125,7 @@
     
                 <div class="col-lg-6 col-md-12">
                   <label>Opening Time<i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                  <input type="text" class="control-form" formControlName="openingTime" />
+                  <input type="time" class="control-form" formControlName="openingTime" />
                   <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
                     Sku Id is required
                   </label> -->
@@ -133,7 +133,7 @@
     
                 <div class="col-lg-6 col-md-12">
                   <label>Closing Time<i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                  <input type="text" class="control-form" formControlName="closingTime" />
+                  <input type="time" class="control-form" formControlName="closingTime" />
                   <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
                     Sku Id is required
                   </label> -->
