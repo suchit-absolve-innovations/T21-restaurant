@@ -74,19 +74,7 @@ export class SubCategoryEditComponent implements OnInit {
   }
 
 
-  /*** Image Upload ***/
-  onselect(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const imageDataUrl = reader.result as string;
-        this.urls.push(imageDataUrl);
-      };
-    }
-  }
+
 
 
   postCategory() {

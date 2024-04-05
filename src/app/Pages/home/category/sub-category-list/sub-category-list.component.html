@@ -14,14 +14,12 @@
                 <table class="table">
                     <tbody><tr>
                         <th>Sub Category Name</th>
-                        <th>Sub Category Image</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
 
                     <tr *ngFor="let item of categoryList">
                         <td>{{item.name}}</td>
-                        <td><img  [src]="rootUrl + item?.categoryImage" class="img-responsive"></td>
                         <td>{{item.createDate}}</td>
                         <td>
                             <div class="action">
