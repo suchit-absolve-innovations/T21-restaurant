@@ -1163,6 +1163,7 @@ aside.open .copyright{
   }
   .vendor-form input[type=text],
 .vendor-form input[type=tel],
+.vendor-form input[type=time],
 .vendor-form input[type=email],
 .vendor-form select,
 .vendor-form textarea,
