@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContentService } from 'src/app/shared/service/content.service';
+import { CategoryService } from 'src/app/shared/service/category.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -22,9 +22,11 @@ export class SubCategoryAddComponent implements OnInit {
   mainId: any;
   userRole= localStorage.getItem('user');
   urls: string[] = [];
+  restaurantId: any;
+  mainCategoryId: any;
   constructor(
     private formBuilder: FormBuilder,
-    private contentService: ContentService,
+    private categoryService: CategoryService,
     private route: ActivatedRoute,
     private toasterService: ToastrService,
     private spinner: NgxSpinnerService,
@@ -33,6 +35,8 @@ export class SubCategoryAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.restaurantId = localStorage.getItem('restaurantId');
+    this.mainCategoryId = this.route.snapshot.params;
     this.rootUrl = environment.rootPathUrl;
     this.categoryForm();
 
@@ -45,8 +49,8 @@ export class SubCategoryAddComponent implements OnInit {
   }
   categoryForm() {
     this.form = this.formBuilder.group({
-      categoryName: ['', [Validators.required]],
-      categoryDescription: [''],
+      name: ['', [Validators.required]],
+      description: [''],
     });
   }
 
@@ -63,7 +67,39 @@ export class SubCategoryAddComponent implements OnInit {
     }
   }
   
-
+  postCategory() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+ debugger
+      let payload = {
+        mainCategoryId : this.mainCategoryId.id,
+        restaurantId : parseInt(this.restaurantId),
+        name: this.form.value.name,
+        description: this.form.value.description,
+      }
+      this.categoryService.addCategory(payload).subscribe(response => {
+        this.mainId = response.data?.mainProductCategoryId;
+        this.afterResponses(response);
+      });
+    }
+  
+    afterResponses(response: any) {
+      debugger
+        if (response.isSuccess == true) {
+debugger
+            this.router.navigate(['/main-category/sub-category/' + this.mainCategoryId.id])
+            .then(() => {
+             window.location.reload();
+           });
+            this.toasterService.success(response.messages);
+        }
+       else {
+          this.toasterService.error(response.messages);
+        }
+      
+    }
 
 }
 

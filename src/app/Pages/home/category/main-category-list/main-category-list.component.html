@@ -25,7 +25,7 @@
                         <td>{{item.createDate}}</td>
                         <td>
                             <div class="action">
-                                <a [routerLink]="['/main-category/sub-category']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
+                                <a [routerLink]="['/main-category/sub-category/'] + item.mainCategoryId" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
                                 <a  [routerLink]="['/main-category/main-category-edit/']  + item.mainCategoryId " style="background: #ffdeff;"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                                 <a  style="background: #e3e9ff;" (click)="deleteMainCategory(item.mainCategoryId)"><i class="fa-solid fa-trash"></i></a>

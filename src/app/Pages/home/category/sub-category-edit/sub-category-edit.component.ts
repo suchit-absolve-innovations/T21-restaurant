@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { ContentService } from 'src/app/shared/service/content.service';
+import { CategoryService } from 'src/app/shared/service/category.service';
 import { environment } from 'src/environments/environment';
 import { Location } from '@angular/common';
 @Component({
@@ -23,9 +23,11 @@ export class SubCategoryEditComponent implements OnInit {
   Id2: any;
   subId: any;
   urls: string[] = [];
+  restaurantId: any;
+  mainCategoryId: any;
   constructor(
     private spinner: NgxSpinnerService,
-    private content: ContentService,
+    private categoryService: CategoryService,
     private router: Router,
     private ngZone: NgZone,
     private route: ActivatedRoute,
@@ -38,7 +40,9 @@ export class SubCategoryEditComponent implements OnInit {
     this.Id = this.route.snapshot.paramMap.get('id');
     this.Id2 = this.route.snapshot.paramMap.get('id2');
     this.categoryForm();
-
+    this.restaurantId = localStorage.getItem('restaurantId');
+    this.mainCategoryId = this.route.snapshot.params;
+    this.getCategoryDetail();
   }
 
   backClicked() {
@@ -48,8 +52,8 @@ export class SubCategoryEditComponent implements OnInit {
   /** Add Category Form **/
   categoryForm() {
     this.form = this.formBuilder.group({
-      categoryName: ['', [Validators.required]],
-      categoryDescription: [''],
+      name: ['', [Validators.required]],
+      description: [''],
     });
   }
 
@@ -83,5 +87,59 @@ export class SubCategoryEditComponent implements OnInit {
       };
     }
   }
+
+
+  postCategory() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+ debugger
+      let payload = {
+        mainCategoryId : this.mainCategoryId.id,
+        subCategoryId : this.mainCategoryId.id2,
+        restaurantId : parseInt(this.restaurantId),
+        name: this.form.value.name,
+        description: this.form.value.description,
+      }
+      this.categoryService.editCategory(payload).subscribe(response => {
+       
+        this.afterResponses(response);
+      });
+    }
   
+    afterResponses(response: any) {
+      debugger
+        if (response.isSuccess == true) {
+debugger
+            this.router.navigate(['/main-category/sub-category/' + this.mainCategoryId.id])
+            .then(() => {
+             window.location.reload();
+           });
+            this.toasterService.success(response.messages);
+        }
+       else {
+          this.toasterService.error(response.messages);
+        }
+      
+    }
+  
+    getCategoryDetail() {
+      debugger
+ let payload = {
+ mainCategoryId :this.mainCategoryId.id,
+ subCategoryId : this.mainCategoryId.id2
+ }
+      this.categoryService.subcategoryDetail(payload).subscribe(response => {
+        if (response.isSuccess) {
+          this.detail = response.data;
+          this.id = this.detail.mainProductCategoryId
+          this.editImages = this.rootUrl + this.detail?.categoryImage;
+          this.form.patchValue({
+            name: this.detail.name,
+            description: this.detail.description,
+          });
+        }
+      });
+    }
 }

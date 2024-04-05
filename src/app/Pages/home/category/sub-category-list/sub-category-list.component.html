@@ -6,7 +6,7 @@
                 <h4> Sub Category</h4>
             </div>
 
-            <a [routerLink]="['/main-category/sub-category/sub-category-add']" class="view-more xxs-mt-20">Add Sub Category</a>
+            <a [routerLink]="['/main-category/sub-category/sub-category-add/'] + mainCategoryId.id" class="view-more xxs-mt-20">Add Sub Category</a>
         </div>
 
         <div class="table-box white-box mt-30">
@@ -19,65 +19,22 @@
                         <th>Action</th>
                     </tr>
 
-                    <tr>
-                        <td>category 1</td>
-                        <td><img src="https://dummyimage.com/50x50/eee/fff" class="img-responsive"></td>
-                        <td>15 August 2021</td>
+                    <tr *ngFor="let item of categoryList">
+                        <td>{{item.name}}</td>
+                        <td><img  [src]="rootUrl + item?.categoryImage" class="img-responsive"></td>
+                        <td>{{item.createDate}}</td>
                         <td>
                             <div class="action">
                                
-                                <a  [routerLink]="['/main-category/sub-category/sub-category-edit']" style="background: #ffdeff;"><i
+                                <a  [routerLink]="['/main-category/sub-category/sub-category-edit/',mainCategoryId.id,item.subCategoryId]" style="background: #ffdeff;"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
-                                <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
+                                <a  style="background: #e3e9ff;" (click)="deletesubCategory(item.subCategoryId)"><i class="fa-solid fa-trash"></i></a>
         
                             </div>  
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>category 2</td>
-                        <td><img src="https://dummyimage.com/50x50/ddd/fff" class="img-responsive"></td>
-                        <td>22 january 2024</td>
-                        <td>
-                            <div class="action">
-                               
-                                <a  [routerLink]="['/main-category/sub-category/sub-category-edit']" style="background: #ffdeff;"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
-        
-                            </div>  
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>category 3</td>
-                        <td><img src="https://dummyimage.com/50x50/ddd/fff" class="img-responsive"></td>
-                        <td>30 March 2021</td>
-                        <td>
-                            <div class="action">
-                               
-                                <a  [routerLink]="['/main-category/sub-category/sub-category-edit']" style="background: #ffdeff;"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
-        
-                            </div>  
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>category 4</td>
-                        <td><img src="https://dummyimage.com/50x50/ddd/fff" class="img-responsive"></td>
-                        <td>30 April 2020</td>
-                        <td>
-                            <div class="action">
-                               
-                                <a  [routerLink]="['/main-category/sub-category/sub-category-edit']" style="background: #ffdeff;"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                <a  style="background: #e3e9ff;"><i class="fa-solid fa-trash"></i></a>
-        
-                            </div>  
-                        </td>
-                    </tr> 
+                
                 </tbody>
             </table>
             </div>

@@ -33,7 +33,23 @@ export class CategoryService {
       return this.http.post<any>(environment.apiUrl + ApiEndPoint.editCategory, data);
     }
 
-    categoryDetail(MainProductCategoryId: any) {
-      // return this.http.get<any>(environment.apiUrl + ApiEndPoint.categoryDetail + '?MainProductCategoryId=' + MainProductCategoryId);
+    maincategoryDetail(mainCategoryId: any) {
+      return this.http.get<any>(environment.apiUrl + ApiEndPoint.mainCategoryDetail + '?mainCategoryId=' + mainCategoryId);
     }
+
+    getsubcategory(data: any) {
+      return this.http.get<any>(environment.apiUrl + ApiEndPoint.mainCategoryList + '?restaurantId=' + data.restaurantId + '&mainCategoryId=' + data.mainCategoryId);
+    }
+
+
+          // Category Delete
+
+  subCategoryDelete(data: any) {
+    return this.http.delete<any>(environment.apiUrl + ApiEndPoint.deleteMainCategory + '?mainCategoryId=' + data.mainCategoryId + '&subCategoryId=' + data.subCategoryId + '&restaurantId=' + data.restaurantId);
+  }
+
+  subcategoryDetail(data: any) {
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.mainCategoryDetail + '?mainCategoryId=' + data.mainCategoryId + '&subCategoryId=' + data.subCategoryId);
+  }
+
 }

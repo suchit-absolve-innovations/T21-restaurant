@@ -40,8 +40,9 @@ export class MainCategoryEditComponent implements OnInit {
   ngOnInit(): void {
     this.rootUrl = environment.rootPathUrl;
     this.restaurantId = localStorage.getItem('restaurantId');
-    this.mainCategoryId = this.route.snapshot.queryParams;
+    this.mainCategoryId = this.route.snapshot.params;
     this.categoryForm();
+    this.getCategoryDetail();
 
   }
   backClicked() {
@@ -77,7 +78,7 @@ export class MainCategoryEditComponent implements OnInit {
     }
  
       let payload = {
-        mainCategoryId : 0,
+        mainCategoryId : this.mainCategoryId.id,
         restaurantId : parseInt(this.restaurantId),
         name: this.form.value.name,
         description: this.form.value.description,
@@ -105,19 +106,20 @@ debugger
     }
 
 
-    // getCategoryDetail(id: string) {
-    //   this.categoryService.categoryDetail(id).subscribe(response => {
-    //     if (response.isSuccess) {
-    //       this.detail = response.data;
-    //       this.id = this.detail.mainProductCategoryId
-    //       this.editImages = this.rootUrl + this.detail?.categoryImage;
-    //       this.form.patchValue({
-    //         name: this.detail.name,
-    //         description: this.detail.description,
-    //       });
-    //     }
-    //   });
-    // }
+    getCategoryDetail() {
+      debugger
+      this.categoryService.maincategoryDetail(this.mainCategoryId.id).subscribe(response => {
+        if (response.isSuccess) {
+          this.detail = response.data;
+          this.id = this.detail.mainProductCategoryId
+          this.editImages = this.rootUrl + this.detail?.categoryImage;
+          this.form.patchValue({
+            name: this.detail.name,
+            description: this.detail.description,
+          });
+        }
+      });
+    }
 
 
 }

@@ -4,6 +4,7 @@ export enum ApiEndPoint {
     mainCategoryList = "api/Category/GetCategoryList",
     deleteMainCategory = "api/Category/DeleteCategory",
     addCategory = "api/Category/AddCategory",
-    editCategory = "api/Category/UpdateCategory"
+    editCategory = "api/Category/UpdateCategory",
+    mainCategoryDetail = "api/Category/GetCategoryDetail"
    
 }

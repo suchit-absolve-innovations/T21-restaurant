@@ -33,9 +33,9 @@
                           </div>
                         <div class="col-lg-12 col-md-12">
                             <label>Sub Category Name</label>
-                            <input type="text" class="control-form" formControlName="categoryName">
-                            <div *ngIf="submitted && f['categoryName'].errors" class="help-block">
-                                <div *ngIf="f['categoryName'].errors['required']" style="color: #fd0000;">Category Name
+                            <input type="text" class="control-form" formControlName="name">
+                            <div *ngIf="submitted && f['name'].errors" class="help-block">
+                                <div *ngIf="f['name'].errors['required']" style="color: #fd0000;">Category Name
                                     is
                                     required</div>
                             </div>
@@ -43,11 +43,11 @@
 
                         <div class="col-lg-12 col-md-12">
                             <label>Description</label>
-                            <textarea type="text" class="control-form" formControlName="categoryDescription"></textarea>
+                            <textarea type="text" class="control-form" formControlName="description"></textarea>
                         </div>
 
                         <div class="col-lg-12 col-md-12 mt-40 text-center">
-                            <button class="btn_blue " type="submit" >Submit</button>
+                            <button class="btn_blue " type="submit" (click)="postCategory()">Submit</button>
                         </div>
 
                     </div>
