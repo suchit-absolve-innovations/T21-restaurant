@@ -29,7 +29,7 @@ import { MessagingService } from './shared/service/messaging-service';
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
+      timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),

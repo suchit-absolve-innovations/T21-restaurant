@@ -20,21 +20,22 @@ export class RestaurantListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.fetchRestaurantList();
+    this.restaurantList();
   }
-  fetchRestaurantList() {
+  restaurantList() {
     let payload = {
       pageNumber: 1,
       pageSize: 100
-    }
+    };
+  
     this.restaurantService.getRestaurantList(payload).subscribe(response => {
-      if (response.isSuccess) {
+      if (response && response.isSuccess) {
         this.toaster.success(response.messages);
-        this.list = response.data.dataList
+        this.list = response.data.dataList;
       } else {
-        this.toaster.error(response.messages)
+        this.toaster.error(response.messages);
       }
-    })
+    });
   }
 
 }
