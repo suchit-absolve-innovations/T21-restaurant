@@ -56,7 +56,8 @@ export class EditRestaurantComponent implements OnInit {
         countryId: [231],
         stateId: [],
         city: [''],
-        postalCode: ['']
+        postalCode: [''],
+        streetAddress:['']
       }),
       restaurant: this.formBuilder.group({
         name: [''],
@@ -71,7 +72,8 @@ export class EditRestaurantComponent implements OnInit {
         phoneNumber: [''],
         tipOption: [false],
         taxApplicable: [false],
-        splitPayment: [false]
+        splitPayment: [false],
+        postalCode: [''],
       })
     });
 
@@ -100,6 +102,8 @@ export class EditRestaurantComponent implements OnInit {
             stateId: this.userDetail.stateId,
             email: this.userDetail.email,
             password: this.userDetail.password,
+            postalCode: this.userDetail.postalCode,
+            streetAddress:this.userDetail.streetAddress
           },
           restaurant: {
             name: this.restaurantDetail.name,
@@ -114,7 +118,8 @@ export class EditRestaurantComponent implements OnInit {
             phoneNumber: this.restaurantDetail.phoneNumber,
             tipOption: this.restaurantDetail.tipOption,
             taxApplicable: this.restaurantDetail.taxApplicable,
-            splitPayment: this.restaurantDetail.splitPayment
+            splitPayment: this.restaurantDetail.splitPayment,
+            postalCode: this.userDetail.postalCode,
           }
         });
       } else {
@@ -184,7 +189,9 @@ const closingTimeAMPM = this.convertToAMPM(this.form.value.restaurant.closingTim
         city: this.form.value.personalProfile.city,
         phoneNumber: this.form.value.personalProfile.phoneNumber,
         countryId: 231,
-        stateId: this.form.value.personalProfile.stateId
+        stateId: this.form.value.personalProfile.stateId,
+        streetAddress : this.form.value.personalProfile.streetAddress
+
       },
       restaurant: {
         name: this.form.value.restaurant.name,
@@ -199,7 +206,8 @@ const closingTimeAMPM = this.convertToAMPM(this.form.value.restaurant.closingTim
         phoneNumber: this.form.value.restaurant.phoneNumber,
         tipOption: this.form.value.restaurant.tipOption,
         taxApplicable: this.form.value.restaurant.taxApplicable,
-        splitPayment: this.form.value.restaurant.splitPayment
+        splitPayment: this.form.value.restaurant.splitPayment,
+        postalCode: this.form.value.restaurant.postalCode,
       }
     };
   

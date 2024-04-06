@@ -31,6 +31,7 @@ export class RestaurantListComponent implements OnInit {
     this.restaurantList();
   }
   restaurantList() {
+    this.spinner.show();
     let payload = {
       pageNumber: 1,
       pageSize: 100
@@ -38,9 +39,11 @@ export class RestaurantListComponent implements OnInit {
   
     this.restaurantService.getRestaurantList(payload).subscribe(response => {
       if (response && response.isSuccess) {
+        this.spinner.hide();
         this.toaster.success(response.messages);
         this.list = response.data.dataList;
       } else {
+        this.spinner.hide();
         this.toaster.error(response.messages);
       }
     });
