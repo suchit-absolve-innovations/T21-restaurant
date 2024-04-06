@@ -63,8 +63,11 @@
                 <input type="text" class="control-form" formControlName="dialCode" numbersOnly [readonly]="true" />
               </div>
               <div class="col-lg-6 col-md-12">
-                <label>Device Type </label>
-                <input type="text" class="control-form" formControlName="deviceType" numbersOnly [readonly]="true" />
+                <label>Postal Code<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text"  class="control-form white-bg" formControlName="postalCode">
+                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
+                  Selling Price is required
+                </label> -->
               </div>
               <div class="col-lg-6 col-md-12">
                 <label>Email Id<i class="fa fa-asterisk" aria-hidden="true"></i></label>
@@ -104,13 +107,7 @@
                   Selling Price is required
                 </label> -->
               </div>
-              <div class="col-lg-6 col-md-12">
-                <label>Postal Code<i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                <input type="text"  class="control-form white-bg" formControlName="postalCode">
-                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
-                  Selling Price is required
-                </label> -->
-              </div>
+         
 
 
               <div class="col-lg-12 col-md-12">
@@ -186,8 +183,8 @@
 
 
               <div class="col-lg-6 col-md-12">
-                <label>Street Address<i class="fa fa-asterisk" aria-hidden="true"></i></label>
-                <input type="text" class="control-form" formControlName="streetAddress" />
+                <label>City<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="city" />
                 <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
                   Sku Id is required
                 </label> -->
@@ -240,6 +237,13 @@
                   <option value="false">False</option>
                 </select>
 
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <label>Street Address<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="streetAddress" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
               </div>
 
             </div>
