@@ -79,6 +79,8 @@ i {
 
 .img-responsive{
     max-width:100%;
+}
+.mid-img{
     max-width: 53px;
     max-height: 35px;
 }
