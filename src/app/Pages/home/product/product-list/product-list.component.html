@@ -3,8 +3,9 @@
         <div class="d-flex align-items-center flex-wrap">
             <div class="d-flex align-items-center sp-text mr-auto">
                 <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
-                <h4>Product List</h4>
+                <h4>Menu List</h4>
             </div>
+            <a [routerLink]="['/product-list/add']" class="view-more xxs-mt-20">Add Menu</a>
         </div>
         <div class="mt-30 table-box white-box">
             <div class="row mb-30">
