@@ -56,7 +56,7 @@
             </tr>
             <tr *ngFor="let item of list | paginate: {itemsPerPage: 5, currentPage: page, totalItems: totalItems,id: '1' } ">
                 <td>{{item.name}}</td>
-              <td class="profile"> <img class="img-responsive" [src]="rootUrl + item?.image"></td>
+              <td class="profile"> <img class="img-responsive mid-img" [src]="rootUrl + item?.image"></td>
                 <!-- <td>{{item.basePrice}}</td>
                 <td>{{item.discount}}</td> -->
                 <td>{{item.sellingPrice}}</td>
