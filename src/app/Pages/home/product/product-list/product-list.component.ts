@@ -43,24 +43,20 @@ export class ProductListComponent implements OnInit {
    /** Main Category List */
 
    getMainCategory() {
-    this.spinner.show();
     this.categoryService
       .getcategory(this.restaurantId)
       .subscribe((response) => {
         if (response.isSuccess == true) {
           this.categoryList = response.data;
-          this.spinner.hide();
-          this.toaster.success(response.messages);
         } else {
-          this.spinner.hide();
-          this.toaster.error(response.messages);
+
         }
       });
   }
 
 
   getsubCategory(data:any) {
-    debugger
+
     this.spinner.show();
     let paylaod = {
     restaurantId : this.restaurantId,
@@ -71,11 +67,7 @@ export class ProductListComponent implements OnInit {
       .subscribe((response) => {
         if (response.isSuccess == true) {
           this.subcategoryList = response.data;
-          this.spinner.hide();
-          this.toaster.success(response.messages);
         } else {
-          this.spinner.hide();
-          this.toaster.error(response.messages);
         }
       });
   }
