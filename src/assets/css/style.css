@@ -80,6 +80,7 @@ i {
 .img-responsive{
     max-width:100%;
     max-width: 53px;
+    max-height: 35px;
 }
 
 .tb-100{
