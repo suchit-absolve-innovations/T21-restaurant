@@ -78,9 +78,16 @@ export class LoginComponent implements OnInit {
     this.loginModel = this.loginForm.value;
     this.auth.login(this.loginModel).subscribe((response) => {
       if (response.messages) {
-        this.spinner.hide();
-        this.toasterService.success(response.messages);
-        this.router.navigateByUrl('/dashboard');
+        if(response.data.role == 'Admin') {
+          this.spinner.hide();
+          this.toasterService.success(response.messages);
+          this.router.navigateByUrl('/dashboard');
+        } else if(response.data.role == 'Restaurant'){
+          this.spinner.hide();
+          this.toasterService.success(response.messages);
+          this.router.navigateByUrl('/order-list');
+        }
+      
       } else {
         this.spinner.hide();
         this.toasterService.error(response.messages);
