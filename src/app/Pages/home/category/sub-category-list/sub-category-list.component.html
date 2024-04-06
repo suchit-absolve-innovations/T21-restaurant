@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center flex-wrap">
             <div class="d-flex align-items-center sp-text mr-auto">
                 <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
-                <h4> Sub Category</h4>
+                <input type="text" placeholder="Search Sub Category" class="search-txt">
             </div>
 
             <a [routerLink]="['/main-category/sub-category/sub-category-add/'] + mainCategoryId.id" class="view-more xxs-mt-20">Add Sub Category</a>
@@ -35,6 +35,9 @@
                 
                 </tbody>
             </table>
+            <div class="no-data text-center" *ngIf="categoryList?.length < 1">
+                <img src="assets/img/NO DATA.png">
+            </div>
             </div>
         </div>
     </div>
