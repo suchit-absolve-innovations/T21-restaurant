@@ -36,7 +36,7 @@ export class RestaurantProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.params['id'];
+    this.userId = localStorage.getItem('userId')
     this.rootUrl = environment.rootPathUrl;
     this.getRestaurantDetail();
     this.restaurantForm();
@@ -80,6 +80,7 @@ export class RestaurantProfileComponent implements OnInit {
         taxApplicable: [false],
         splitPayment: [false],
         postalCode: [''],
+        city: ['']
       })
     });
 
@@ -87,6 +88,7 @@ export class RestaurantProfileComponent implements OnInit {
 
   getRestaurantDetail() {
     this.spinner.show();
+    debugger
     this.restaurantService.getRestaurantdetails(this.userId).subscribe(response => {
       if (response.isSuccess) {
         this.spinner.hide();
@@ -109,7 +111,8 @@ export class RestaurantProfileComponent implements OnInit {
             stateId: this.userDetail.stateId,
             email: this.userDetail.email,
             postalCode: this.userDetail.postalCode,
-            streetAddress:this.userDetail.streetAddress
+            streetAddress:this.userDetail.streetAddress,
+            city:this.userDetail.city
            
           },
           restaurant: {
@@ -126,7 +129,8 @@ export class RestaurantProfileComponent implements OnInit {
             tipOption: this.restaurantDetail.tipOption,
             taxApplicable: this.restaurantDetail.taxApplicable,
             splitPayment: this.restaurantDetail.splitPayment,
-            postalCode: this.userDetail.postalCode,
+            postalCode: this.restaurantDetail.postalCode,
+            city: this.restaurantDetail.city,
           }
         });
       } else {
@@ -210,10 +214,12 @@ export class RestaurantProfileComponent implements OnInit {
         gender: this.form.value.personalProfile.gender,
         deviceType: this.form.value.personalProfile.deviceType,
         dialCode: this.form.value.personalProfile.dialCode,
-        password: this.form.value.personalProfile.password,
         phoneNumber: this.form.value.personalProfile.phoneNumber,
+        city: this.form.value.personalProfile.city,
         countryId: 231,
-        stateId: this.form.value.personalProfile.stateId
+        stateId: this.form.value.personalProfile.stateId,
+        streetAddress: this.form.value.personalProfile.streetAddress,
+        postalCode: this.form.value.personalProfile.postalCode,
       },
       restaurant: {
         name: this.form.value.restaurant.name,
@@ -228,7 +234,9 @@ export class RestaurantProfileComponent implements OnInit {
         phoneNumber: this.form.value.restaurant.phoneNumber,
         tipOption: this.form.value.restaurant.tipOption,
         taxApplicable: this.form.value.restaurant.taxApplicable,
-        splitPayment: this.form.value.restaurant.splitPayment
+        splitPayment: this.form.value.restaurant.splitPayment,
+        postalCode: this.form.value.restaurant.postalCode,
+        city: this.form.value.restaurant.city,
       }
     };
 

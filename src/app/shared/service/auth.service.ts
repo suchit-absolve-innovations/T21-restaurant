@@ -35,6 +35,7 @@ export class AuthService {
             localStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem('loginRole', user.data.role);
         localStorage.setItem('restaurantId', user.data.restaurantId);
+        localStorage.setItem('userId', user.data.id);
              this.currentUserSubject.next(user);
           } else {
             this.router.navigateByUrl('/login')
