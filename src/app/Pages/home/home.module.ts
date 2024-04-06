@@ -34,7 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { AddRestaurantComponent } from './restaurant/add-restaurant/add-restaurant.component';
 import { EditRestaurantComponent } from './restaurant/edit-restaurant/edit-restaurant.component';
-
+import { NumberDirective } from 'src/app/number.directive';
 
 
 @NgModule({
@@ -65,6 +65,7 @@ import { EditRestaurantComponent } from './restaurant/edit-restaurant/edit-resta
     RestaurantProfileComponent,
     AddRestaurantComponent,
     EditRestaurantComponent,
+    NumberDirective
   ],
   imports: [
     CommonModule,

@@ -34,7 +34,7 @@ export class SubCategoryListComponent implements OnInit {
     this.getsubCategory();
   }
 
-   /** Main Category List */
+   /** Sub Category List */
 
    getsubCategory() {
     this.spinner.show();

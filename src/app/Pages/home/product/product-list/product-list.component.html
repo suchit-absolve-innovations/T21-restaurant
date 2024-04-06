@@ -1,90 +1,4 @@
-<div class="content-body">
-    <div class="container-fluid">
-        <div class="d-flex align-items-center flex-wrap">
-            <div class="d-flex align-items-center sp-text mr-auto">
-                <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
-                <h4>Menu List</h4>
-            </div>
-            <a [routerLink]="['/product-list/add']" class="view-more xxs-mt-20">Add Menu</a>
-        </div>
-        <div class="mt-30 table-box white-box">
-            <div class="row mb-30">
-                <div class="col-md-4 slt-cate">
-                    <label>Main Category</label>
-                    <select class="form-control">
-                        <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                    </select>
-                </div>
 
-
-                <div class="col-md-4 slt-cate">
-                    <label>Sub Category</label>
-                    <select class="form-control">
-                        <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                    </select>
-                </div>
-
-                <div class="col-md-4 slt-cate">
-                    <label>Sub Sub Category</label>
-                    <select class="form-control">
-                        <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                    </select>
-                </div>
-
-            </div>
-
-<div class="table-responsive">
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Image</th>
-                <th>Quality</th>
-                <th>Category Name</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-
-                <td>
-                    <div class="action">
-                        <a [routerLink]="['/restaurant-list/restaurant-details/product-list/product-detail']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-                <td>product</td>
-                <td>
-                    <div class="action">
-                        <a [routerLink]="['/restaurant-list/restaurant-details/product-list/product-detail']" style="background: #d1fde6;"><i class="fa fa-eye"></i></a>
-                    </div>
-            </tr>
-        </tbody>
-
-    </table>
-
-
-</div>
-        </div>
-    </div>
-</div>
-
-------------------------------------------
 <!-- ////////////vendor////// -->
 
 
@@ -95,48 +9,44 @@
         <div class="d-flex align-items-center flex-wrap">
             <div class="d-flex align-items-center sp-text mr-auto">
                 <i class="fa fa-search"></i>
-                <h4>Search Product</h4>
+                <h4>Search Item</h4>
             </div>
-            <a [routerLink]="['/product-list/add']" class="view-more xxs-mt-20">Add Product</a>
+            <a [routerLink]="['/product-list/add']" class="view-more xxs-mt-20">Add Item</a>
         </div>
         <div class="mt-30 table-box white-box">
+            <form [formGroup]="form">
             <div class="row mb-30">
-                <div class="col-md-4 slt-cate">
+               
+                <div class="col-md-6 slt-cate">
                     <label>Main Category</label>
-                    <select class="form-control">
+                    <select class="form-control" formControlName="mainCategoryId"  (change)="getsubCategory(f['mainCategoryId'].value)">
                         <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
+                        <option *ngFor="let item of categoryList" [ngValue]="item?.mainCategoryId">
+                          {{item?.name}}
+                        </option>
                     </select>
                 </div>
 
 
-                <div class="col-md-4 slt-cate">
+                <div class="col-md-6 slt-cate">
                     <label>Sub Category</label>
                     <select class="form-control">
-                        <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
+                        <option value="">Select </option>
+                        <option *ngFor="let item of subcategoryList" [ngValue]="item?.subCategoryId">
+                            {{item?.name}}
+                          </option>
                     </select>
                 </div>
 
-                <div class="col-md-4 slt-cate">
-                    <label>Sub Sub Category</label>
-                    <select class="form-control">
-                        <option value="">Select</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                    </select>
-                </div>
-
+       
             </div>
-
+        </form>
 <div class="table-responsive">
     <table class="table">
         <tbody>
             <tr>
-                <th>Product Name</th>
-                <th>Product Image</th>
+                <th>Name</th>
+                <th>Image</th>
                 <th>Quality</th>
                 <th>Category Name</th>
                 <th>Status</th>

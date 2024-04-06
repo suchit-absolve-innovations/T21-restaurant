@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/shared/service/product.service';
@@ -15,6 +15,9 @@ export class AddProductComponent implements OnInit {
   imageFile!: { link: any; file: any; name: any; type: any };
   urls: string[] = [];
   submitted: boolean = false;
+  basePrice!: number ;
+  discount: number = 0;
+  sellingPrice!: number ;
   constructor(
     private _location: Location,
     private formBuilder: FormBuilder,
@@ -29,13 +32,16 @@ export class AddProductComponent implements OnInit {
 
   productForm(){
     this.form = this.formBuilder.group({
-    name: [''],
-    price: [''],
-    variantOptionCount: [''],
-    variantOptionId: [''],
-    variantTypeId: [''],
-    restaurantId: [''],
+    name:  ['', [Validators.required]],
+    discription:  ['', [Validators.required]],
+    basePrice: ['', [Validators.required]],
+    discount: ['', [Validators.required]],
+    sellingPrice: ['', [Validators.required]],
     });
+  }
+
+  get f() {
+    return this.form['controls'];
   }
   onselect(event: any) {
     const files = event.target.files;
@@ -52,6 +58,22 @@ export class AddProductComponent implements OnInit {
   
   backClicked() {
     this._location.back();
+  }
+
+  calculateSellingPrice() {
+    const discountAmount = (this.basePrice * this.discount) / 100;
+    this.sellingPrice = this.basePrice - discountAmount;
+  }
+  
+
+
+  submit(){
+
+    this.submitted = true;
+    if (this.form.invalid) {
+       this.toasterService.error("Form Incomplete: Please fill in all the required fields correctly");
+      return;
+    }
   }
 
 }
