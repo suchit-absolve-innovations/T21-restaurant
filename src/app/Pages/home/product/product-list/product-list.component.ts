@@ -4,6 +4,8 @@ import { CategoryService } from 'src/app/shared/service/category.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormBuilder } from '@angular/forms';
+import { ProductService } from 'src/app/shared/service/product.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -14,18 +16,25 @@ export class ProductListComponent implements OnInit {
   categoryList: any;
   subcategoryList: any;
   form: any;
+  list: any;
+  rootUrl!: string;
+  page: number = 0;
+  itemsPerPage!: number;
+  totalItems!: number;
   constructor(
     private _location: Location,
     private categoryService: CategoryService,
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
+    private productService:ProductService
   ) { }
 
   ngOnInit(): void {
     this.restaurantId = localStorage.getItem('restaurantId');
+    this.rootUrl = environment.rootPathUrl;
     this.getMainCategory();
-
+this.getProductList();
     this.form = this.formBuilder.group({
       mainCategoryId: [''],
       subCategoryId: [''],
@@ -70,6 +79,28 @@ export class ProductListComponent implements OnInit {
         } else {
         }
       });
+  }
+
+
+  // 
+
+  getProductList(){
+    let paylaod ={
+      pageNumber:1,
+      pageSize: 1000,
+      restaurantId: this.restaurantId
+    }
+
+    this.productService.getmenulist(paylaod).subscribe(response => {
+      if (response && response.isSuccess) {
+        this.spinner.hide();
+        this.toaster.success(response.messages);
+        this.list = response.data.dataList;
+      } else {
+        this.spinner.hide();
+        this.toaster.error(response.messages);
+      }
+    })
   }
 
 }

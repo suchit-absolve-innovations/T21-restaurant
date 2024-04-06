@@ -10,4 +10,5 @@ export enum ApiEndPoint {
     addRestaurants = "api/Admin/AddOrUpdateRestaurant",
     getState = "api/Content/GetStates",
     getCountry = "api/Content/GetCountries",
+    menuList = "api/Restaurant/GetFoodItemList"
 }

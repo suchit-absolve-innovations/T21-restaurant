@@ -22,7 +22,7 @@
 
 
                         <tr
-                        *ngFor="let item of list  | paginate: {itemsPerPage: 1, currentPage: page, totalItems: totalItems,id: '1' }  ">
+                        *ngFor="let item of list  | paginate: {itemsPerPage: 5, currentPage: page, totalItems: totalItems,id: '1' }  ">
                         <td class="profile">
                             {{item.restaurantName}}
                         </td>

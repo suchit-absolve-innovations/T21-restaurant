@@ -13,7 +13,7 @@ export class ProductService {
 
   // get product list 
 
-  getProductlist(data: any) {
-    return this.http.get<any>(environment.apiUrl + ApiEndPoint.login + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize);
+  getmenulist(data: any) {
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.menuList + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize + '&restaurantId=' + data.restaurantId);
   }
 }
