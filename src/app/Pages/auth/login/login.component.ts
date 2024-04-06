@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       emailOrPhone: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-   
     });
   }
 
@@ -77,14 +76,14 @@ export class LoginComponent implements OnInit {
     }
     this.spinner.show();
     this.loginModel = this.loginForm.value;
-    debugger
     this.auth.login(this.loginModel).subscribe((response) => {
       if (response.messages) {
         this.spinner.hide();
-        debugger
+        this.toasterService.success(response.messages);
         this.router.navigateByUrl('/dashboard');
       } else {
         this.spinner.hide();
+        this.toasterService.error(response.messages);
         this.toasterService.error('Incorrect Username');
       }
     });
