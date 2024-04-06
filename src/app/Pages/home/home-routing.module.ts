@@ -42,7 +42,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       ///Admin ////
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
       { path: 'restaurant-list', component: RestaurantListComponent },
       { path: 'restaurant-list/restaurant-details/:id', component: RestaurantDetailsComponent },
       { path: 'restaurant-list/add-restaurant', component: AddRestaurantComponent },

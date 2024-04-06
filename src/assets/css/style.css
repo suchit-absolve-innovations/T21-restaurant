@@ -934,12 +934,7 @@ aside.open .copyright{
     font-weight: 300;
     padding-left: 25px;
 }
-.no-data img {
-    max-width: 350px;
-    margin: 20px;
-    height: 325px;
-    width: 300px;
-}
+
 .search-txt{
     padding: 4px 40px 4px 6px;
     border: 2px solid #1ac4fb;
