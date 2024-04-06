@@ -1,6 +1,6 @@
 export class Login {
-    emailOrPhone!: string;
-    password!: string;
+  emailOrPhone!: string;
+  password!: string;
   data: any;
-  
+
 }

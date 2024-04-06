@@ -16,4 +16,7 @@ export class ProductService {
   getProductlist(data: any) {
     return this.http.get<any>(environment.apiUrl + ApiEndPoint.login + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize);
   }
+   addMenu(data: any) {
+      return this.http.post<any>(environment.apiUrl + ApiEndPoint.addUpdateMenu, data);
+    }
 }

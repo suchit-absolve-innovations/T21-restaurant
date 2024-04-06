@@ -18,9 +18,15 @@
                     </div>
                 </div>
 
-
-                <input type="password" class="form-control password" placeholder="Password" formControlName="password"
+                <div class="form-group position-relative" style="display: flex">
+                <input type= "{{show ? 'text' : 'password' }}"  class="form-control password" placeholder="Password" formControlName="password"
                     [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                    <div class="input-group-append eye-icon login-passsword" (click)="onClick()">
+                        <i class="fa fa-eye-slash eye-icon " aria-hidden="true"
+                            *ngIf="!show"></i>
+                        <i class="fa fa-eye " aria-hidden="true" *ngIf="show"></i>
+                    </div>
+                </div>
                 <div *ngIf="submitted && f['password'].errors" class="help-block"
                     [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" style=" color: #fd0000;
                     text-align: center;">
