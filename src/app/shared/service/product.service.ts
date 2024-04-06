@@ -16,4 +16,7 @@ export class ProductService {
   getmenulist(data: any) {
     return this.http.get<any>(environment.apiUrl + ApiEndPoint.menuList + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize + '&restaurantId=' + data.restaurantId);
   }
+   addMenu(data: any) {
+      return this.http.post<any>(environment.apiUrl + ApiEndPoint.addUpdateMenu, data);
+    }
 }

@@ -1,1 +1,279 @@
-<p>restaurant-profile works!</p>
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center flex-wrap">
+      <div class="d-flex align-items-center sp-text mr-auto">
+        <a (click)="backClicked()"><i class="fa fa-solid fa-left-long"></i></a>
+        <h4>Restaurant Profile</h4>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="vendor-form bg-white mt-40">
+        <div class="text-center mb-30">
+          <h3>Add Profile Picture </h3>
+        </div>
+        <div class="this_row">
+          <div class="row ">
+        <div class="col-lg-12 col-md-12 ">
+          <div class="upload_file text-center">
+            <div class="imges-upload mb-0">
+              <div class="imgUp m-auto">
+                <div class="imagePreview" [style.background-image]="'url(' + editImages + ')'">
+                </div>
+                <label class="upload button btn btn-primary">
+                  Upload<input type="file" class="uploadFile img" name="bannerimage"
+                    style="width: 0px;height: 0px;overflow: file; border-style: none;" id="bannerimage"
+                    (change)="imagesUpload($event)">
+                </label>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vendor-form input-form bg-white" formGroupName="personalProfile">
+          <h3>Personal Profile</h3>
+          <div class="this_row">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <label>First Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="firstName">
+                <!-- <label *ngIf="submitted && f['firstName'].errors" class="invalid-formdata">
+                  First Name is required
+                </label> -->
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Last Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="lastName">
+                <!-- <div *ngIf="submitted && f['email'].errors" class="help-block">
+                  <div *ngIf="f['email'].errors" style="color: #fd0000">
+                    Last is required.
+                  </div>
+                </div> -->
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Gender</label>
+                <select type="text" class="control-form" formControlName="gender">
+                  <option [selected]>Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Dial Code </label>
+                <input type="text" class="control-form" formControlName="dialCode" numbersOnly [readonly]="true" />
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Device Type </label>
+                <input type="text" class="control-form" formControlName="deviceType" numbersOnly [readonly]="true" />
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Email Id<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="email">
+         
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Phone Number<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="phoneNumber">
+                <!-- <label *ngIf="submitted && f['phoneNumber'].errors" class="invalid-formdata">
+                  Phone Number is required
+                </label> -->
+              </div>
+           
+              <div class="col-lg-6 col-md-12">
+                <label>Country <i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <!-- <input type="text"  class="control-form white-bg" formControlName="countryId"> -->
+                <select type="text" class="control-form  white-bg" formControlName="countryId">
+                  <option [selected]="true">United States </option>
+                </select>
+            
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>State<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <!-- <input type="text"  class="control-form white-bg" formControlName="stateId" > -->
+                <select type="text" class="control-form white-bg" formControlName="stateId">
+                  <option value="" [selected]>Choose State</option>
+                  <option *ngFor="let app of statesLists" [ngValue]="app?.stateId">{{app?.stateName}}
+                  </option>
+                </select>
+            
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>City<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text"  class="control-form white-bg" formControlName="city">
+                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
+                  Selling Price is required
+                </label> -->
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Postal Code<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text"  class="control-form white-bg" formControlName="postalCode">
+                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
+                  Selling Price is required
+                </label> -->
+              </div>
+
+
+              <div class="col-lg-12 col-md-12">
+                <label>Street Address<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <textarea type="text"  class="control-form white-bg" formControlName="streetAddress">
+                  </textarea>
+                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
+                  Selling Price is required
+                </label> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end first form -->
+
+        <div class="vendor-form bg-white" formGroupName="restaurant">
+          <h3>Restaurant Detail</h3>
+          <div class="this_row">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <label>Restaurant Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="name" />
+                <!-- <label *ngIf="submitted && f['productName'].errors" class="invalid-formdata">
+                  Product Name is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Phone Number<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="phoneNumber" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Opening Time<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="time" class="control-form" formControlName="openingTime" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Closing Time<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="time" class="control-form" formControlName="closingTime" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>State<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <select type="text" class="control-form white-bg" formControlName="stateId">
+                  <option value="" [selected]>Choose State</option>
+                  <option *ngFor="let app of statesLists" [ngValue]="app?.stateId">{{app?.stateName}}
+                  </option>
+                </select>
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Country<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <select type="text" class="control-form  white-bg" formControlName="countryId">
+                  <option [selected]="true">United States </option>
+                </select>
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+
+              <div class="col-lg-6 col-md-12">
+                <label>Street Address<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="streetAddress" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Landmark<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text" class="control-form" formControlName="landmark" />
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <label>Postal Code<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <input type="text"  class="control-form white-bg" formControlName="postalCode">
+                <!-- <label *ngIf="submitted && f['sellingPrice'].errors" class="invalid-formdata">
+                  Selling Price is required
+                </label> -->
+              </div>
+
+
+              <div class="col-lg-6 col-md-12">
+                <label>Tip Option<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <select type="text" class="control-form " formControlName="tipOption">
+                  <option value="" selected>Select</option>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Tax Applicable<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <select type="text" class="control-form " formControlName="taxApplicable">
+                  <option value="" selected>Select</option>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+                <!-- <label *ngIf="submitted && f['skuid'].errors" class="invalid-formdata">
+                  Sku Id is required
+                </label> -->
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                <label>Split Payment<i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                <select type="text" class="control-form " formControlName="splitPayment">
+                  <option value="" selected>Select</option>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+
+              </div>
+
+            </div>
+            <div class="col-lg-12 col-md-12 mt-40 text-center">
+              <button class="border-btn" type="submit" value="" data-toggle="modal"
+                data-target="#cancel-mess">Cancel</button>
+              <button class="btn_blue" type="submit" (click)="submit()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </form>
+  </div>
+</div>
+<!-- Modal -->
+<!-- <div class="modal fade" id="cancel-mess" tabindex="-1" role="dialog" aria-labelledby="cancel-messLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content warning-content">
+        <div class="modal-body text-center warning-mess-sec">
+            <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <img src="assets\img\warning.png">
+            <h2>Alert</h2>
+          <p>Are You Sure, You want to Cancel it?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" border-btn" data-dismiss="modal">Close</button>
+          <button type="button" class=" btn_blue" >Yes, Cancel It</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

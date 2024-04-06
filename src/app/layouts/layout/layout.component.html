@@ -2,21 +2,19 @@
   
     <header>
       
-        <div class="search-box xs-d-none">
+        <!-- <div class="search-box xs-d-none">
             <input type="text"  placeholder="Search Products">
-          </div>
+          </div> -->
         <ul class="ml-auto header-outer">
             <li class="notification_dropdown li-current">
                 <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa-solid fa-bell"></i>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" >Action</a>
-                  <a class="dropdown-item" >Another action</a>
-                   <a class="dropdown-item" >Something else here</a>
+                
                 </ul>
             </li>
-  
+
             <li class="header-profile ">
                 <a class="setting" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="logouts()">
                     <i class="fa-solid fa-power-off"></i> Logout 
@@ -74,17 +72,17 @@
 <div  class="menu mt-20" *ngIf="this.userRole == 'Restaurant'">
               <div class="item">
                 <a [routerLink]="['/order-list']" routerLinkActive="active">
-                  <span>Order List</span><i class="fa-solid fa-id-badge"></i></a>
+                  <span>Order List</span><i class="fa-solid fa-list"></i></a>
             </div>
             <div class="item">
                 <a [routerLink]="['/product-list']" routerLinkActive="active">
-                  <span>Menu</span><i class="fa-solid fa-id-badge"></i></a>
+                  <span>Menu</span><i class="fa-solid fa-bars"></i></a>
             </div>
 
 
                <div class="item">
                 <a [routerLink]="['/main-category']" routerLinkActive="active">
-                  <span>Category</span><i class="fa-solid fa-id-badge"></i></a>
+                  <span>Category</span><i class="fa-solid fa-table"></i></a>
             </div>
   
                 <div class="item">
@@ -93,11 +91,11 @@
                 </div>
                 <div class="item">
                     <a [routerLink]="['/notification']" routerLinkActive="active">
-                      <span>Notification</span><i class="fa fa-file-text-o"></i></a>
+                      <span>Notification</span><i class="fa-regular fa-envelope"></i></a>
                 </div>
                 <div class="item">
                     <a [routerLink]="['/Restaurant-profile']" routerLinkActive="active">
-                      <span>Profile</span><i class="fa fa-file-text-o"></i></a>
+                      <span>Profile</span><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
           

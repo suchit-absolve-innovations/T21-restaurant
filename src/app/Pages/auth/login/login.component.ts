@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
   loginModel!: Login;
   submitted = false;
 
-  show = false;
   password!: any;
+  show = false;
+  showPassword: boolean = false;
   constructor(
     private renderer: Renderer2,
     private router: Router,
