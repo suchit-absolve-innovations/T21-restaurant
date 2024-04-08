@@ -82,11 +82,11 @@ export class LoginComponent implements OnInit {
         if(response.data.role == 'Admin') {
           this.spinner.hide();
           this.toasterService.success(response.messages);
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/restaurant-list');
         } else if(response.data.role == 'Restaurant'){
           this.spinner.hide();
           this.toasterService.success(response.messages);
-          this.router.navigateByUrl('/order-list');
+          this.router.navigateByUrl('/dashboard');
         }
       
       } else {

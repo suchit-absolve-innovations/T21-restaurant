@@ -44,10 +44,7 @@
                
             </div>
             <div class="menu mt-20"  *ngIf="this.userRole == 'Admin'">
-                <div class="item">
-                    <a [routerLink]="['/dashboard']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact:true}"> <span>Dashboard</span> <i class="fa fa-dashboard"></i></a>
-                </div>
+             
   
                 <div class="item">
                     <a [routerLink]="['/restaurant-list']" routerLinkActive="active"> <span>Restaurant</span><i class="fa-solid fa-utensils"></i></a>
@@ -70,6 +67,10 @@
 
 
 <div  class="menu mt-20" *ngIf="this.userRole == 'Restaurant'">
+    <div class="item">
+        <a [routerLink]="['/dashboard']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"> <span>Dashboard</span> <i class="fa fa-dashboard"></i></a>
+    </div>
               <div class="item">
                 <a [routerLink]="['/order-list']" routerLinkActive="active">
                   <span>Order List</span><i class="fa-solid fa-list"></i></a>

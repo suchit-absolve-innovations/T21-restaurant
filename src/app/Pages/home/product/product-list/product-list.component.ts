@@ -76,7 +76,9 @@ this.getProductList();
       .subscribe((response) => {
         if (response.isSuccess == true) {
           this.subcategoryList = response.data;
+          this.spinner.hide();
         } else {
+          this.spinner.hide();
         }
       });
   }
