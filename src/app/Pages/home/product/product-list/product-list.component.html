@@ -19,7 +19,8 @@
                
                 <div class="col-md-6 slt-cate">
                     <label>Main Category</label>
-                    <select class="form-control" formControlName="mainCategoryId"  (change)="getsubCategory(f['mainCategoryId'].value)">
+                    <select class="form-control" formControlName="mainCategoryId"  (change)="getsubCategory(f['mainCategoryId'].value)"
+                    (change)="filterlistMenuMain(f['mainCategoryId'].value)">
                         <option value="">Select</option>
                         <option *ngFor="let item of categoryList" [ngValue]="item?.mainCategoryId">
                           {{item?.name}}
@@ -30,7 +31,7 @@
 
                 <div class="col-md-6 slt-cate">
                     <label>Sub Category</label>
-                    <select class="form-control">
+                    <select class="form-control" formControlName="subCategoryId"   (change)="filterlistMenuSub(f['subCategoryId'].value)">
                         <option value="">Select </option>
                         <option *ngFor="let item of subcategoryList" [ngValue]="item?.subCategoryId">
                             {{item?.name}}

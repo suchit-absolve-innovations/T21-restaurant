@@ -17,6 +17,14 @@ export class ProductService {
     return this.http.get<any>(environment.apiUrl + ApiEndPoint.menuList + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize + '&restaurantId=' + data.restaurantId);
   }
 
+  getmenufilter1(data:any){
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.menuList + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize + '&restaurantId=' + data.restaurantId + '&mainCategoryId=' + data.mainCategoryId);
+  }
+
+  getmenufilter2(data:any){
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.menuList + '?pageNumber=' + data.pageNumber + '&pageSize=' + data.pageSize + '&restaurantId=' + data.restaurantId +  '&subCategoryId=' + data.subCategoryId);
+  }
+
 
    addMenu(data: any) {
       return this.http.post<any>(environment.apiUrl + ApiEndPoint.addUpdateMenu, data);

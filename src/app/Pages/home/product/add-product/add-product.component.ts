@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/shared/service/product.service';
@@ -9,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
   form!: FormGroup;
@@ -27,12 +27,12 @@ export class AddProductComponent implements OnInit {
   constructor(
     private _location: Location,
     private formBuilder: FormBuilder,
-    private toasterService: ToastrService,        
-    private productService: ProductService,        
+    private toasterService: ToastrService,
+    private productService: ProductService,
     private router: Router,
     private categoryService: CategoryService,
-    private spinner:NgxSpinnerService
-  ) { }
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.restaurantId = localStorage.getItem('restaurantId');
@@ -40,16 +40,16 @@ export class AddProductComponent implements OnInit {
     this.getMainCategory();
   }
 
-  productForm(){
+  productForm() {
     this.form = this.formBuilder.group({
-    name:  ['', [Validators.required]],
-    discription:  ['', [Validators.required]],
-    basePrice: ['', [Validators.required]],
-    discount: ['', [Validators.required]],
-    sellingPrice: ['', [Validators.required]],
-    mainCategoryId:  ['', [Validators.required]],
-    subCategoryId:  ['', [Validators.required]],
-    status:[true]
+      name: ['', [Validators.required]],
+      discription: ['', [Validators.required]],
+      basePrice: ['', [Validators.required]],
+      discount: ['', [Validators.required]],
+      sellingPrice: ['', [Validators.required]],
+      mainCategoryId: ['', [Validators.required]],
+      subCategoryId: ['', [Validators.required]],
+      status: [true],
     });
   }
 
@@ -65,47 +65,44 @@ export class AddProductComponent implements OnInit {
     const discountAmount = (this.basePrice * this.discount) / 100;
     this.sellingPrice = this.basePrice - discountAmount;
   }
-  
-   /** Main Category List */
 
-   getMainCategory() {
+  /** Main Category List */
+
+  getMainCategory() {
     this.categoryService
       .getcategory(this.restaurantId)
       .subscribe((response) => {
         if (response.isSuccess == true) {
           this.categoryList = response.data;
         } else {
-
         }
       });
   }
 
-
-  getsubCategory(data:any) {
+  getsubCategory(data: any) {
     let paylaod = {
-    restaurantId : this.restaurantId,
-    mainCategoryId : data
-    }
-    this.categoryService
-      .getsubcategory(paylaod)
-      .subscribe((response) => {
-        if (response.isSuccess == true) {
-          this.subcategoryList = response.data;
-        } else {
-        }
-      });
+      restaurantId: this.restaurantId,
+      mainCategoryId: data,
+    };
+    this.categoryService.getsubcategory(paylaod).subscribe((response) => {
+      if (response.isSuccess == true) {
+        this.subcategoryList = response.data;
+      } else {
+      }
+    });
   }
 
-  submit(){
-
+  submit() {
     this.submitted = true;
     if (this.form.invalid) {
-      debugger
-       this.toasterService.error("Form Incomplete: Please fill in all the required fields correctly");
+      debugger;
+      this.toasterService.error(
+        'Form Incomplete: Please fill in all the required fields correctly'
+      );
       return;
     }
     const payload = {
-      restaurantId:this.restaurantId,
+      restaurantId: this.restaurantId,
       name: this.form.value.name,
       description: this.form.value.description,
       basePrice: this.form.value.basePrice,
@@ -113,23 +110,20 @@ export class AddProductComponent implements OnInit {
       sellingPrice: this.form.value.sellingPrice,
       mainCategoryId: this.form.value.mainCategoryId,
       subCategoryId: this.form.value.subCategoryId,
-      status: this.form.value.status
+      status: this.form.value.status,
     };
 
-    this.productService.addMenu(payload).subscribe(response => {
-      if(response.isSuccess){
-        debugger
-        this.foodId = response.data.foodId
+    this.productService.addMenu(payload).subscribe((response) => {
+      if (response.isSuccess) {
+        this.foodId = response.data.foodId;
         this.fileChangeEvent();
-this.toasterService.success(response.messages);
-this.router.navigateByUrl('/product-list');
+        this.toasterService.success(response.messages);
+        this.router.navigateByUrl('/product-list');
       } else {
-        this.toasterService.error(response.messages)
+        this.toasterService.error(response.messages);
       }
-    })
+    });
   }
-
-
 
   onselect(event: any) {
     if (event.target.files && event.target.files[0]) {
@@ -139,7 +133,7 @@ this.router.navigateByUrl('/product-list');
           link: _event.target.result,
           file: event.srcElement.files[0],
           name: event.srcElement.files[0].name,
-          type: event.srcElement.files[0].type
+          type: event.srcElement.files[0].type,
         };
       };
       // this.name = this.imageFile.link
@@ -149,12 +143,8 @@ this.router.navigateByUrl('/product-list');
 
   fileChangeEvent() {
     let formData = new FormData();
-    formData.append("image", this.imageFile?.file);
-    formData.append("foodId", this.foodId);
-    this.productService.uploadImage(formData).subscribe(response => {
-    });
+    formData.append('image', this.imageFile?.file);
+    formData.append('foodId', this.foodId);
+    this.productService.uploadImage(formData).subscribe((response) => {});
   }
-  
-
 }
-

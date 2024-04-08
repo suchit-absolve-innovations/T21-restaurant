@@ -102,7 +102,51 @@ this.getProductList();
         this.spinner.hide();
         this.toaster.error(response.messages);
       }
-    })
+    });
   }
+
+  filterlistMenuMain(data:any){
+    debugger
+    let paylaod ={
+      pageNumber:1,
+      pageSize: 1000,
+      restaurantId: this.restaurantId,
+      mainCategoryId:data
+    }
+
+    this.productService.getmenufilter1(paylaod).subscribe(response => {
+      if (response && response.isSuccess) {
+        this.spinner.hide();
+        this.toaster.success(response.messages);
+        this.list = response.data.dataList;
+      } else {
+        this.spinner.hide();
+        this.toaster.error(response.messages);
+      }
+    });
+  }
+
+
+  filterlistMenuSub(data:any){
+    debugger
+    let paylaod ={
+      pageNumber:1,
+      pageSize: 1000,
+      restaurantId: this.restaurantId,
+      subCategoryId:data
+    }
+
+    this.productService.getmenufilter2(paylaod).subscribe(response => {
+      if (response && response.isSuccess) {
+        this.spinner.hide();
+        this.toaster.success(response.messages);
+        this.list = response.data.dataList;
+      } else {
+        this.spinner.hide();
+        this.toaster.error(response.messages);
+      }
+    });
+  }
+
 
 }
