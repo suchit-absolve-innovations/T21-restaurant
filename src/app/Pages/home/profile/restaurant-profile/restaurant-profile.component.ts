@@ -23,7 +23,11 @@ export class RestaurantProfileComponent implements OnInit {
   editImages: any;
   imageFile!: { link: any, file: any, name: any, type: any };
   imageId: any;
-  
+  urls1: any = [];
+  imageUrl: any;
+  image1: any;
+  errorMessage:any;
+  restaurantId: any;
   constructor(
     private _location: Location,
     private toaster: ToastrService,
@@ -95,9 +99,11 @@ export class RestaurantProfileComponent implements OnInit {
         this.toaster.success(response.messages);
         this.userDetail = response.data.user
         this.restaurantDetail = response.data?.restaurant;
+        this.restaurantId = response.data.restaurant.restaurantId; 
+        console.log(this.restaurantId)
         this.imageId = response.data.user.id;
-        console.log(this.imageId)
         this.editImages = this.rootUrl + this.userDetail?.profilePic;
+        this.imageUrl = this.rootUrl + this.restaurantDetail?.image;
         debugger
         this.getCountry();
         this.form.patchValue({
@@ -141,24 +147,80 @@ export class RestaurantProfileComponent implements OnInit {
 
   }
 
-  imagesUpload(event: any) {
+
+
+  onselect(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (_event: any) => {
-        this.editImages = _event.target.result;
+        this.imageFile = {
+          link: _event.target.result,
+          file: event.srcElement.files[0],
+          name: event.srcElement.files[0].name,
+          type: event.srcElement.files[0].type
+        };
       };
+      // this.name = this.imageFile.link
       reader.readAsDataURL(event.target.files[0]);
     }
   }
 
-
   fileChangeEvent() {
     let formData = new FormData();
-    formData.append("ProfilePic", this.imageFile?.file);
+    formData.append("profilePic", this.imageFile?.file);
     formData.append("Id", this.imageId);
-    this.contentService.uploadImage(formData).subscribe(response => {
+    this.restaurantService.uploadImage(formData).subscribe(response => {
     });
   }
+ 
+  ///Restaurant logo//
+  handleFileInput(event: any) {
+    const fileType = event.target.files[0].type;
+    if ((fileType === 'image/jpeg' || fileType === 'image/png') && fileType !== 'image/jfif') {
+    const files = event.target.files;
+    for (let e = 0; e < files.length; e++) {
+      const file = files[e];
+      this.image1 = file
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const imageDataUrl1 = reader.result as string;
+        this.imageUrl = imageDataUrl1;
+        this.urls1.push(imageDataUrl1);
+      };
+    }
+  }
+  else {
+    this.errorMessage = 'Please select a valid JPEG or PNG image.';
+      }
+  }
+
+
+  fileChangeEvents() {
+    debugger
+    const formData = new FormData();
+    for (let e = 0; e < this.urls1.length; e++) {
+      const imageDataUrl1 = this.urls1[e];
+      const blob = this.dataURItoBlob1(imageDataUrl1);
+      formData.append('image', blob, `image_${e}.png`);
+    }
+    // formData.append("SalonImage", this.imageFiles?.file);
+    formData.append("restaurantId", this.restaurantId);
+    this.restaurantService.restaurantlogoImage(formData).subscribe(response => {
+    });
+  }
+  private dataURItoBlob1(dataURI: string): Blob {
+
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let e = 0; e < byteString.length; e++) {
+      ia[e] = byteString.charCodeAt(e);
+    }
+    return new Blob([ab], { type: mimeString });
+  }
+
 
 
   // Function to remove "AM" or "PM" from the time
@@ -244,6 +306,7 @@ export class RestaurantProfileComponent implements OnInit {
     this.restaurantService.addRestaurant(payload).subscribe(response => {
       if (response.isSuccess) {
         this.fileChangeEvent();
+        this.fileChangeEvents();
         this.toaster.success(response.messages);
 
       } else {

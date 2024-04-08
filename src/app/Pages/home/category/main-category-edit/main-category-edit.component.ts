@@ -59,18 +59,34 @@ export class MainCategoryEditComponent implements OnInit {
   }
 
   onselect(event: any) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
+    if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const imageDataUrl = reader.result as string;
-        this.urls.push(imageDataUrl);
+      reader.onload = (_event: any) => {
+        this.imageFile = {
+          link: _event.target.result,
+          file: event.srcElement.files[0],
+          name: event.srcElement.files[0].name,
+          type: event.srcElement.files[0].type
+        };
       };
+      // this.name = this.imageFile.link
+      reader.readAsDataURL(event.target.files[0]);
     }
   }
-  
+
+  fileChangeEvent() {
+    debugger
+    let formData = new FormData();
+    formData.append("image", this.imageFile?.file);
+    formData.append("restaurantId", this.restaurantId);
+    formData.append("mainCategoryId", this.mainCategoryId.id);
+    this.categoryService.categoryImage(formData).subscribe(response => {
+    
+    });
+  }
+
+
+
   postCategory() {
     this.submitted = true;
     if (this.form.invalid) {
@@ -85,6 +101,7 @@ export class MainCategoryEditComponent implements OnInit {
       }
       this.categoryService.editCategory(payload).subscribe(response => {
         this.mainId = response.data?.mainProductCategoryId;
+        this.fileChangeEvent();
         this.afterResponses(response);
       });
     }
@@ -112,7 +129,7 @@ debugger
         if (response.isSuccess) {
           this.detail = response.data;
           this.id = this.detail.mainProductCategoryId
-          this.editImages = this.rootUrl + this.detail?.categoryImage;
+          this.editImages = this.rootUrl + this.detail?.image;
           this.form.patchValue({
             name: this.detail.name,
             description: this.detail.description,

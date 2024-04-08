@@ -19,9 +19,9 @@
                         <th>Action</th>
                     </tr>
 
-                    <tr *ngFor="let item of categoryList">
+                    <tr *ngFor="let item of categoryList | paginate: {itemsPerPage: 5, currentPage: page, totalItems: totalItems,id: '1' }  ">
                         <td>{{item.name}}</td>
-                        <td><img  [src]="rootUrl + item?.categoryImage" class="img-responsive"></td>
+                        <td><img  [src]="rootUrl + item?.image" class="img-responsive mid-img"></td>
                         <td>{{item.createDate}}</td>
                         <td>
                             <div class="action">
@@ -38,6 +38,9 @@
 
                   
                 </tbody></table>
+                <pagination-controls (pageChange)="((page = $event))" id="1" (pageIndex)="page"
+                class="paginate-doctor-list">
+            </pagination-controls>
             </div>
         </div>
     </div>

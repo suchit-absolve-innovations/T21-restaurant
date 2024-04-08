@@ -22,7 +22,7 @@
                 <label class="upload button btn btn-primary">
                   Upload<input type="file" class="uploadFile img" name="bannerimage"
                     style="width: 0px;height: 0px;overflow: file; border-style: none;" id="bannerimage"
-                    (change)="imagesUpload($event)">
+                    (change)="onselect($event)">
                 </label>
                 <div>
                 </div>
@@ -127,6 +127,14 @@
           <h3>Restaurant Detail</h3>
           <div class="this_row">
             <div class="row">
+              <div class="col-lg-12 col-md-12 mb-20">
+                <label>Restaurant Logo</label>
+                <br>
+                <input name="bannerimage" type="file"  class="uploadFile img" #image1
+                    (change)="handleFileInput($event)">
+                <label data-toggle="modal" data-target="#myModal3" class="preview-butn">preview</label>
+            </div>
+
               <div class="col-lg-6 col-md-12">
                 <label>Restaurant Name<i class="fa fa-asterisk" aria-hidden="true"></i></label>
                 <input type="text" class="control-form" formControlName="name" />
@@ -262,22 +270,20 @@
     </form>
   </div>
 </div>
-<!-- Modal -->
-<!-- <div class="modal fade" id="cancel-mess" tabindex="-1" role="dialog" aria-labelledby="cancel-messLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content warning-content">
-        <div class="modal-body text-center warning-mess-sec">
-            <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+<!-- modal3 -->
+<div class="modal fade vendor-popup" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog max_sf modal-dialog-centered" role="document"
+        style="border-radius:15px; overflow:hidden; border:none;">
+        <div class="modal-content popup_advance">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-              </button>
-            <img src="assets\img\warning.png">
-            <h2>Alert</h2>
-          <p>Are You Sure, You want to Cancel it?</p>
+            </button>
+            <div class="modal-body text-center">
+                <div class="imagePreview">
+                    <img [src]="imageUrl">
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class=" border-btn" data-dismiss="modal">Close</button>
-          <button type="button" class=" btn_blue" >Yes, Cancel It</button>
-        </div>
-      </div>
     </div>
-  </div> -->
+</div>

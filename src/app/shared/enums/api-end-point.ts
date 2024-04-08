@@ -13,5 +13,7 @@ export enum ApiEndPoint {
     menuList = "api/Restaurant/GetFoodItemList",
     addUpdateMenu = "api/Restaurant/AddUpdateFoodItem",
     ImageUpload = "api/Upload/UploadProfilePic",
-    foodImageUpload = "api/Upload/UploadFoodItemImage"
+    foodImageUpload = "api/Upload/UploadFoodItemImage",
+    restaurantImages = "api/Upload/UploadRestaurantLogoAndImage",
+    categoryImageupload = "api/Upload/UploadMainCategoryImage",
 }

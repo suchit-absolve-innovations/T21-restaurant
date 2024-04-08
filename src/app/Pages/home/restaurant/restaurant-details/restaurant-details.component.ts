@@ -16,6 +16,10 @@ export class RestaurantDetailsComponent implements OnInit {
   userDetail:any;
   rootUrl: any;
   userId: any;
+  restaurantId: any;
+  editImages: any;
+  imageUrl: any;
+  imageId: any;
   constructor(
     private _location: Location,
     private toaster: ToastrService,
@@ -42,7 +46,12 @@ export class RestaurantDetailsComponent implements OnInit {
         this.toaster.success(response.messages);
         this.userDetail = response.data?.user
         this.restaurantDetail = response.data?.restaurant
-        console.log(this.userDetail.firstName)
+        this.restaurantId = response.data.restaurant.restaurantId; 
+        console.log(this.restaurantId)
+        this.imageId = response.data.user.id;
+        this.editImages = this.rootUrl + this.userDetail?.profilePic;
+        this.imageUrl = this.rootUrl + this.restaurantDetail?.image;
+        debugger
       } else {
         this.spinner.hide();
         this.toaster.error(response.messages);

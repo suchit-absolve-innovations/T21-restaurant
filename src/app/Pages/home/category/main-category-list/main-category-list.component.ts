@@ -14,7 +14,10 @@ export class MainCategoryListComponent implements OnInit {
   restaurantId!: any;
   categoryList: any;
   rootUrl!: string;
-
+  page: number = 0;
+  itemsPerPage!: number;
+  search: any;
+  totalItems!: number;
   constructor(
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
@@ -28,6 +31,10 @@ export class MainCategoryListComponent implements OnInit {
     this.restaurantId = localStorage.getItem('restaurantId');
     this.rootUrl = environment.rootPathUrl;
     this.getMainCategory();
+    this.route.queryParams.subscribe((params) => {
+      this.search = params['search'] || '';
+      this.page = params['page'] ? parseInt(params['page'], 10) : 1;
+    });   
   }
 
   /** Main Category List */
