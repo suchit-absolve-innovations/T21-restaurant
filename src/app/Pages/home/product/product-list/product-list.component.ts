@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { FormBuilder } from '@angular/forms';
 import { ProductService } from 'src/app/shared/service/product.service';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -21,23 +22,30 @@ export class ProductListComponent implements OnInit {
   page: number = 0;
   itemsPerPage!: number;
   totalItems!: number;
+  search: any;
   constructor(
     private _location: Location,
     private categoryService: CategoryService,
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
-    private productService:ProductService
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
     this.restaurantId = localStorage.getItem('restaurantId');
     this.rootUrl = environment.rootPathUrl;
     this.getMainCategory();
-this.getProductList();
+    this.getProductList();
     this.form = this.formBuilder.group({
       mainCategoryId: [''],
       subCategoryId: [''],
+    });
+    this.route.queryParams.subscribe((params) => {
+      this.search = params['search'] || '';
+      this.page = params['page'] ? parseInt(params['page'], 10) : 1;
     });
   }
 
@@ -48,10 +56,17 @@ this.getProductList();
   backClicked() {
     this._location.back();
   }
+  onPageChange(page: number): void {
+    // Update query parameters for pagination
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
+  }
+  /** Main Category List */
 
-   /** Main Category List */
-
-   getMainCategory() {
+  getMainCategory() {
     this.categoryService
       .getcategory(this.restaurantId)
       .subscribe((response) => {
@@ -64,12 +79,12 @@ this.getProductList();
   }
 
 
-  getsubCategory(data:any) {
+  getsubCategory(data: any) {
 
     this.spinner.show();
     let paylaod = {
-    restaurantId : this.restaurantId,
-    mainCategoryId : data
+      restaurantId: this.restaurantId,
+      mainCategoryId: data
     }
     this.categoryService
       .getsubcategory(paylaod)
@@ -86,9 +101,9 @@ this.getProductList();
 
   // 
 
-  getProductList(){
-    let paylaod ={
-      pageNumber:1,
+  getProductList() {
+    let paylaod = {
+      pageNumber: 1,
       pageSize: 1000,
       restaurantId: this.restaurantId
     }
@@ -105,13 +120,13 @@ this.getProductList();
     });
   }
 
-  filterlistMenuMain(data:any){
+  filterlistMenuMain(data: any) {
     debugger
-    let paylaod ={
-      pageNumber:1,
+    let paylaod = {
+      pageNumber: 1,
       pageSize: 1000,
       restaurantId: this.restaurantId,
-      mainCategoryId:data
+      mainCategoryId: data
     }
 
     this.productService.getmenufilter1(paylaod).subscribe(response => {
@@ -127,13 +142,13 @@ this.getProductList();
   }
 
 
-  filterlistMenuSub(data:any){
+  filterlistMenuSub(data: any) {
     debugger
-    let paylaod ={
-      pageNumber:1,
+    let paylaod = {
+      pageNumber: 1,
       pageSize: 1000,
       restaurantId: this.restaurantId,
-      subCategoryId:data
+      subCategoryId: data
     }
 
     this.productService.getmenufilter2(paylaod).subscribe(response => {

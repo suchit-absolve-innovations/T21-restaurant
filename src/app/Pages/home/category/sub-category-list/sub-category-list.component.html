@@ -18,7 +18,7 @@
                         <th>Action</th>
                     </tr>
 
-                    <tr *ngFor="let item of categoryList">
+                    <tr *ngFor="let item of categoryList | paginate: {itemsPerPage: 2, currentPage: page, totalItems: totalItems,id: '1' }  ">
                         <td>{{item.name}}</td>
                         <td>{{item.createDate}}</td>
                         <td>
@@ -35,6 +35,9 @@
                 
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="((page = $event))" id="1" (pageIndex)="page"
+                class="paginate-doctor-list" queryParamsHandling="merge" (pageChange)="onPageChange($event)">
+            </pagination-controls>
             </div>
         </div>
     </div>

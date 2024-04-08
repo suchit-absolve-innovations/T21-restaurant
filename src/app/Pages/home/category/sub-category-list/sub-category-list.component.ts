@@ -15,7 +15,9 @@ export class SubCategoryListComponent implements OnInit {
   categoryList: any;
   rootUrl!: string;
   mainCategoryId: any;
-
+  page: number = 0;
+  itemsPerPage!: number;
+  totalItems!: number;
   constructor(
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
@@ -32,8 +34,19 @@ export class SubCategoryListComponent implements OnInit {
     this.mainCategoryId = this.route.snapshot.params;
     debugger
     this.getsubCategory();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 0; 
+    });
   }
 
+  onPageChange(page: number): void {
+    // Update query parameters for pagination
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
+  }
    /** Sub Category List */
 
    getsubCategory() {

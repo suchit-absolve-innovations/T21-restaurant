@@ -31,10 +31,18 @@ export class MainCategoryListComponent implements OnInit {
     this.restaurantId = localStorage.getItem('restaurantId');
     this.rootUrl = environment.rootPathUrl;
     this.getMainCategory();
-    this.route.queryParams.subscribe((params) => {
-      this.search = params['search'] || '';
-      this.page = params['page'] ? parseInt(params['page'], 10) : 1;
-    });   
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 0; 
+    });
+  }
+
+  onPageChange(page: number): void {
+    // Update query parameters for pagination
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
   }
 
   /** Main Category List */

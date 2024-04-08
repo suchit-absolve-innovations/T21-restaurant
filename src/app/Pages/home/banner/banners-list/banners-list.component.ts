@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ContentService } from 'src/app/shared/service/content.service';
@@ -24,27 +24,24 @@ export class BannersListComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private content: ContentService,
     private router: Router,
+    private route: ActivatedRoute,
     private ngZone: NgZone,) { }
 
   ngOnInit(): void {
     this.rootUrl = environment.rootPathUrl;
-    // this.getBannerList();
+    this.route.queryParams.subscribe(params => {
+      this.page = +params['page'] || 0; 
+    });
   }
-  // getBannerList() {
-  //   let payload = {
-  //     pageNumber: 1,
-  //     pageSize: 1000,
-  //   }
-  //   this.spinner.show();
-  //   this.content.getBanner(payload).subscribe(response => {
-  //     if (response.isSuccess) {
-  //       this.bannerList = response.data;
 
-  //       this.spinner.hide();
-  //     }
-  //   });
-  // }
-
+  onPageChange(page: number): void {
+    // Update query parameters for pagination
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
+  }
   edit(data: any) {
     this.router.navigate(['/banner-list/add-edit-banner'],
       {

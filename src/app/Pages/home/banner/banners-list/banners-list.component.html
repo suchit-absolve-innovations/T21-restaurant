@@ -77,7 +77,7 @@
                     <img src="assets/img/NO DATA.png">
                 </div> -->
             </div>
-            <pagination-controls (pageChange)="((page = $event))" id="1" (pageIndex)="page" class="paginate-doctor-list">
-            </pagination-controls>
+            <pagination-controls (pageChange)="((page = $event))" id="1" (pageIndex)="page" class="paginate-doctor-list" queryParamsHandling="merge" (pageChange)="onPageChange($event)">
+            </pagination-controls >
         </div>
     </div>

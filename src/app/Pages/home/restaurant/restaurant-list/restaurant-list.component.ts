@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,6 +20,7 @@ export class RestaurantListComponent implements OnInit {
     private restaurantService: RestaurantService,
     private toaster: ToastrService,
     private spinner: NgxSpinnerService,
+    private router: Router,
     private route: ActivatedRoute
     ) { }
 
@@ -29,6 +30,15 @@ export class RestaurantListComponent implements OnInit {
     });
     this.rootUrl = environment.rootPathUrl;
     this.restaurantList();
+  }
+
+  onPageChange(page: number): void {
+    // Update query parameters for pagination
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: page },
+      queryParamsHandling: 'merge',
+    });
   }
   restaurantList() {
     this.spinner.show();
