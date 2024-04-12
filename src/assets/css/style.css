@@ -1097,10 +1097,10 @@ aside.open .copyright{
 }
 .input-forms input[type=text], .input-forms input[type=password] {
     background: #f1f1f1;
-    max-width: 350px;
+    /* max-width: 350px; */
     width: 100%;
-    margin: auto;
-    margin-bottom: 15px;
+    /* margin: auto; */
+    /* margin-bottom: 15px; */
     height: 42px;
     border-radius: 0px;
     border: none;
@@ -1108,15 +1108,20 @@ aside.open .copyright{
     padding-left: 20px;
     font-size: 14px;
 }
-.input-forms input[type=text].user{
-    background: #f1f1f1 url(../images/user.svg) no-repeat center left;
-    
-    padding-left: 55px;
+.form-landing {
+    max-width: 370px;
+    margin: auto;
 }
-.input-forms input[type=password].password{
-    background: #f1f1f1 url(../images/lock.svg) no-repeat center left;
-    padding-left: 55px;
+
+
+.input-item {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
 }
+
 
 .input-forms input[type=submit] {
     background: #222;
@@ -1335,4 +1340,9 @@ padding: 20px!important;
 }
 .modal-body .imagePreview img {
     height: 100%;
+}
+.input-group-append {
+    position: absolute;
+    top: 8px;
+    right: 150px;
 }

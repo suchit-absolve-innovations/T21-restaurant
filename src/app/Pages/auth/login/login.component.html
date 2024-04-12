@@ -10,20 +10,32 @@
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="mt-30"></div>
             <div class="form-landing">
-                <input type="text" class="form-control user" placeholder="Username" formControlName="emailOrPhone"
-                    [ngClass]="{ 'is-invalid': submitted && f['emailOrPhone'].errors }">
-                <div *ngIf="submitted && f['emailOrPhone'].errors" class="help-block" style=" color: #fd0000;
-                text-align: center;">
-                    <div *ngIf="f['emailOrPhone'].errors['required']" >Email or Phone is required
-                    </div>
-                </div>
 
+                <div class="input-item">
+
+                    <div class="login-icon">
+                        <img src="/assets/images/user.svg" alt="">
+                    </div>
+
+                    <input type="text" class="form-control user" placeholder="Username" formControlName="emailOrPhone"
+                        [ngClass]="{ 'is-invalid': submitted && f['emailOrPhone'].errors }">
+                    </div>
+                    <div *ngIf="submitted && f['emailOrPhone'].errors" class="help-block" style=" color: #fd0000;
+                text-align: center;">
+                        <div *ngIf="f['emailOrPhone'].errors['required']">Email or Phone is required
+                        </div>
+                    </div>
+                    <div class="input-item">
+
+                        <div class="login-icon form-group">
+                            <img src="/assets/images/lock.svg" alt="">
+                        </div>
                 <div class="form-group position-relative" style="display: flex">
-                <input type= "{{show ? 'text' : 'password' }}"  class="form-control password" placeholder="Password" formControlName="password"
-                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                    <input type="{{show ? 'text' : 'password' }}" class="form-control password" placeholder="Password"
+                        formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                    </div>
                     <div class="input-group-append eye-icon login-passsword" (click)="onClick()">
-                        <i class="fa fa-eye-slash eye-icon " aria-hidden="true"
-                            *ngIf="!show"></i>
+                        <i class="fa fa-eye-slash eye-icon " aria-hidden="true" *ngIf="!show"></i>
                         <i class="fa fa-eye " aria-hidden="true" *ngIf="show"></i>
                     </div>
                 </div>
@@ -35,10 +47,10 @@
                         required</div>
                 </div>
             </div>
-            <!-- <div class="signed-in text-center">
-                <input type="checkbox" class="">
-                <a href="#">Keep me signed in</a>
-            </div> -->
+            <div class="signed-in text-center">
+
+                <a style="color: blue;" [routerLink]="['/reset-password']">Reset Password</a>
+            </div>
 
             <input type="submit" value="Log In">
 
