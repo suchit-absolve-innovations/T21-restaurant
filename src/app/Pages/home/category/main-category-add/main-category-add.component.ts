@@ -71,6 +71,7 @@ export class MainCategoryAddComponent implements OnInit {
     }
     this.categoryService.addCategory(payload).subscribe(response => {
       // this.mainId = response.data?.mainProductCategoryId;
+      debugger
       this.mainCategoryId = response.data?.mainCategoryId;
       console.log(this.mainCategoryId)
       this.fileChangeEvent();
