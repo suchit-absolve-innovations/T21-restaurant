@@ -43,4 +43,49 @@ export class ProductService {
       return data;
     }));
   }
+
+
+  updateFoodVariantType(data:any){
+    return this.http.post<any>(environment.apiUrl + ApiEndPoint.updateFoodVariantType,data)
+  }
+
+  variantTypeList(data:any){
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.variantTypeList + '?restaurantId=' + data.restaurantId)
+  }
+
+
+  updateFoodVariant(data:any){
+return this.http.post<any>(environment.apiUrl + ApiEndPoint.updateFoodVariant ,data)
+  }
+
+  foodVariantList(data:any){
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.foodVariantList + '?restaurantId=' + data.restaurantId + '&VariantTypeId=' + data.VariantTypeId)
+  }
+
+
+  foodVariantOption(data:any){
+    return this.http.post<any>(environment.apiUrl + ApiEndPoint.foodVariantOption,data)
+  }
+
+  variantOptionList(){
+    return this.http.get<any>(environment.apiUrl + ApiEndPoint.variantOptionList)
+  }
+
+  UpdateFoodItemVariant(data:any){
+    return this.http.post<any>(environment.apiUrl +  ApiEndPoint.UpdateFoodItemVariant,data)
+  }
+
+  GetFoodItemVariant(foodId:any){
+    return this.http.get<any>(environment.apiUrl +  ApiEndPoint.GetFoodItemVariant + '?foodId=' + foodId)
+  }
+
+  AddUpdateFoodVariantOption(data:any){
+    return this.http.post<any>(environment.apiUrl + ApiEndPoint.AddUpdateFoodVariantOption,data)
+  }
+
+  AddUpdateFoodType(data:any){
+ return this.http.post<any>(environment.apiUrl + ApiEndPoint.AddUpdateFoodType,data)
+}
+
+
 }
